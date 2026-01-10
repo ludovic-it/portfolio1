@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Veille Technologique - Portfolio Ludovic.C | Tendances IT</title>
+    <meta name="description"
+        content="Veille technologique sur l'automatisation no-code avec n8n et l'informatique embarquée dans les avions de chasse français.">
+    <meta name="keywords"
+        content="veille technologique, n8n, automatisation, no-code, avions de chasse, Rafale, systèmes embarqués">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://votre-domaine.com/veille.html">
+    <meta property="og:title" content="Veille Technologique - Portfolio Ludovic.C">
+    <meta property="og:description" content="Les sujets et tendances que je suis avec attention.">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Veille Technologique - Portfolio Ludovic.C">
+    <meta name="twitter:description" content="Les sujets et tendances que je suis avec attention.">
+
+    <link rel="stylesheet" href="assets/css/css_index.css">
+    <link rel="stylesheet" href="assets/css/css_veille.css">
+    <link rel="stylesheet" href="assets/css/image-hover-effects.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Police FRICK pour les titres -->
+    <style>
+        @font-face {
+            font-family: 'FRICK';
+            src: url('assets/fonts/FRICK.woff2') format('woff2'),
+                url('assets/fonts/FRICK.woff') format('woff'),
+                url('assets/fonts/FRICK.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+
+    <!-- Nouveaux CSS -->
+    <link rel="stylesheet" href="assets/css/toast.css">
+    <link rel="stylesheet" href="assets/css/scroll-reveal.css">
+    <link rel="stylesheet" href="assets/css/accessibility.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link rel="stylesheet" href="assets/css/footer-enhanced.css">
+    <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+
+    <!-- Scripts de compatibilité (chargés tôt) -->
+    <script src="assets/js/browser-compat.js"></script>
+    <script src="assets/js/font-loader.js"></script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Profil</a>
+                <a href="projets.html" class="nav-link">Projets</a>
+                <a href="parcours.html" class="nav-link">Parcours</a>
+                <a href="veille.html" class="nav-link active">Veille</a>
+                <a href="contact.html" class="nav-contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="veille-section">
+            <div class="container">
+                <div class="veille-header reveal" data-reveal-direction="scale">
+                    <h2 class="section-title">Veille Technologique</h2>
+                    <p class="veille-intro">
+                        Je mène une veille active sur les technologies émergentes et les tendances du secteur IT. 
+                        Découvrez les sujets que je suis avec attention et les outils que j'explore pour rester à la pointe de l'innovation.
+                    </p>
+                </div>
+
+                <div class="veille-grid">
+                    <article class="veille-card reveal" data-veille="avions-chasse">
+                        <div class="veille-image">
+                            <img src="assets/images/cockpit.jpg" alt="Avion de chasse français" loading="lazy">
+                            <div class="veille-card-badge">
+                                <i class="fas fa-fighter-jet"></i>
+                                <span>Défense</span>
+                            </div>
+                        </div>
+                        <div class="veille-content">
+                            <div class="veille-meta">
+                                <span class="veille-date"><i class="far fa-calendar"></i> Mise à jour récente</span>
+                                <span class="veille-reading-time"><i class="far fa-clock"></i> 5 min de lecture</span>
+                            </div>
+                            <h3>Informatique dans les avions de chasse français <i class="fas fa-arrow-right veille-arrow"></i></h3>
+                            <p>L'évolution des systèmes informatiques embarqués dans les avions de combat modernes de l'armée française, notamment le Rafale et les technologies de demain.</p>
+                            <div class="veille-sources">
+                                <span class="source-tag"><i class="fas fa-shield-alt"></i> Défense</span>
+                                <span class="source-tag"><i class="fas fa-microchip"></i> Systèmes embarqués</span>
+                                <span class="source-tag"><i class="fas fa-plane"></i> Rafale</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="veille-card reveal" data-veille="automatisation" style="animation-delay: 0.1s;">
+                        <div class="veille-image">
+                            <img src="assets/images/pc.jpg" alt="Automatisation avec n8n" loading="lazy">
+                            <div class="veille-card-badge">
+                                <i class="fas fa-robot"></i>
+                                <span>Automatisation</span>
+                            </div>
+                        </div>
+                        <div class="veille-content">
+                            <div class="veille-meta">
+                                <span class="veille-date"><i class="far fa-calendar"></i> Mise à jour récente</span>
+                                <span class="veille-reading-time"><i class="far fa-clock"></i> 6 min de lecture</span>
+                            </div>
+                            <h3>Automatisation avec n8n et outils no-code <i class="fas fa-arrow-right veille-arrow"></i></h3>
+                            <p>L'essor des plateformes d'automatisation no-code/low-code comme n8n, Zapier et Make pour créer des workflows automatisés sans programmation.</p>
+                            <div class="veille-sources">
+                                <span class="source-tag"><i class="fab fa-node-js"></i> n8n</span>
+                                <span class="source-tag"><i class="fas fa-code"></i> No-Code</span>
+                                <span class="source-tag"><i class="fas fa-project-diagram"></i> Workflow</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="veille-stats reveal" data-reveal-direction="fade-up">
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-book-open"></i></div>
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Sujets suivis</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-link"></i></div>
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Sources consultées</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-sync-alt"></i></div>
+                        <div class="stat-number">Mise à jour</div>
+                        <div class="stat-label">Régulière</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL ARTICLE -->
+    <div id="veille-modal" class="veille-modal">
+        <div class="veille-modal-overlay"></div>
+        <div class="veille-modal-content">
+            <button class="veille-modal-close" id="close-veille-modal" aria-label="Fermer">×</button>
+            <div id="veille-modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button - Footer -->
+    <section class="scroll-to-top-footer">
+        <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
+            <span>Retour en haut</span>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <div class="footer-links">
+                    <a href="privacy.html" class="privacy-link">Politique de confidentialité</a>
+                    <span class="footer-separator">|</span>
+                    <a href="cookies.html" class="privacy-link">Politique des cookies</a>
+                    <span class="footer-separator">|</span>
+                    <a href="legal.html" class="privacy-link">Mentions légales</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://github.com/Ludovic-SIO" target="_blank" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ludovic-champrobert/" target="_blank" class="social-btn"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+
+    <!-- Nouveaux scripts -->
+    <script src="assets/js/toast.js"></script>
+    <script src="assets/js/scroll-reveal.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+    <script src="assets/js/lazy-load.js"></script>
+
+    <script>
+        // Articles de veille
+        const veilleArticles = {
+            'avions-chasse': {
+                title: 'Informatique dans les avions de chasse français',
+                category: 'Défense & Systèmes embarqués',
+                date: '15 janvier 2025',
+                source: 'Ministère des Armées',
+                image: 'assets/images/cockpit.jpg',
+                content: `
+                    <div class="article-intro">
+                        <p>Les avions de chasse français modernes, notamment le Rafale, intègrent des systèmes informatiques de pointe qui représentent l'état de l'art en matière de technologies embarquées militaires.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h4>Les systèmes embarqués du Rafale</h4>
+                        <p>Le Rafale, fleuron de l'industrie aéronautique française, dispose d'une architecture informatique distribuée extrêmement sophistiquée. Le système de mission SPECTRA (Système de Protection et d'Évitement des Conduites de Tir du Rafale) utilise des processeurs haute performance pour la détection et le brouillage électronique en temps réel.</p>
+                        <p>L'avionique du Rafale repose sur une architecture modulaire avec plusieurs calculateurs interconnectés via des réseaux de données haute vitesse. Ces systèmes permettent la fusion de données provenant de multiples capteurs (radar, optronique, électronique) pour offrir au pilote une situation tactique complète et en temps réel.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h4>Cybersécurité et résilience</h4>
+                        <p>La sécurisation des systèmes embarqués est un enjeu majeur. Les systèmes du Rafale intègrent des mécanismes de protection contre les cyberattaques, avec des architectures redondantes et des protocoles de communication sécurisés. La résilience face aux pannes est assurée par la redondance des systèmes critiques.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h4>Évolutions futures</h4>
+                        <p>Le programme SCAF (Système de Combat Aérien du Futur) prévoit l'intégration de technologies encore plus avancées, incluant l'intelligence artificielle pour l'aide à la décision, des systèmes de communication quantique, et des architectures cloud-edge pour le traitement distribué des données.</p>
+                    </div>
+                    
+                    <div class="article-sources">
+                        <h4>Sources</h4>
+                        <ul>
+                            <li><a href="https://www.defense.gouv.fr/air/equipements/avions-combat/rafale" target="_blank">Ministère des Armées - Le Rafale</a></li>
+                            <li><a href="https://www.dassault-aviation.com/fr/defense/rafale/" target="_blank">Dassault Aviation - Rafale</a></li>
+                            <li><a href="https://www.thalesgroup.com/fr/activites/defense/air/systemes-avioniques" target="_blank">Thales - Systèmes avioniques</a></li>
+                            <li><a href="https://www.safran-group.com/fr/produits-services/systemes-avioniques" target="_blank">Safran - Électronique de défense</a></li>
+                        </ul>
+                    </div>
+                `
+            },
+            'automatisation': {
+                title: 'Automatisation avec n8n et outils no-code',
+                category: 'Automatisation & No-Code',
+                date: '18 décembre 2024',
+                source: 'n8n.io / Documentation officielle',
+                image: 'assets/images/pc.jpg',
+                content: `
+                    <div class="article-intro">
+                        <p>L'automatisation des processus connaît une révolution grâce aux plateformes no-code/low-code comme n8n, permettant de créer des workflows complexes sans écrire de code.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h4>Qu'est-ce que n8n ?</h4>
+                        <p>n8n (prononcé "n-eight-n") est une plateforme d'automatisation open-source et auto-hébergeable. Contrairement à Zapier ou Make, n8n peut être installé sur son propre serveur, offrant un contrôle total sur les données et aucune limite d'exécution.</p>
+                        <p>L'interface visuelle permet de connecter des "nodes" (nœuds) représentant différents services et actions : APIs, bases de données, services cloud, webhooks, etc. Les workflows peuvent inclure des conditions, des boucles et du code JavaScript personnalisé pour les cas complexes.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h4>Comparaison des outils d'automatisation</h4>
+                        <p><strong>n8n :</strong> Open-source, auto-hébergeable, gratuit (version self-hosted), idéal pour les développeurs et entreprises soucieuses de la confidentialité des données.</p>
+                        <p><strong>Zapier :</strong> Leader du marché, très simple d'utilisation, large catalogue d'intégrations (5000+), mais coûteux pour les volumes importants.</p>
+                        <p><strong>Make (ex-Integromat) :</strong> Interface visuelle puissante, bon rapport qualité/prix, excellente gestion des scénarios complexes avec branches et itérateurs.</p>
+                        <p><strong>Power Automate :</strong> Intégré à l'écosystème Microsoft 365, idéal pour automatiser les processus Office et SharePoint.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h4>Cas d'usage courants</h4>
+                        <p>• <strong>Synchronisation de données :</strong> Synchroniser automatiquement les contacts entre un CRM et une liste de diffusion email.</p>
+                        <p>• <strong>Notifications intelligentes :</strong> Recevoir des alertes Slack/Discord quand un événement spécifique se produit (nouvelle commande, erreur serveur, mention sur les réseaux sociaux).</p>
+                        <p>• <strong>Traitement de fichiers :</strong> Convertir automatiquement des fichiers uploadés, les renommer et les organiser dans le cloud.</p>
+                        <p>• <strong>Intégration IA :</strong> Connecter ChatGPT ou Claude pour analyser automatiquement des emails, générer des réponses ou classifier des données.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h4>Pourquoi c'est important pour un développeur ?</h4>
+                        <p>Maîtriser ces outils permet de créer rapidement des prototypes, d'automatiser les tâches répétitives du quotidien, et de proposer des solutions d'intégration à moindre coût pour les clients. L'approche no-code ne remplace pas le développement traditionnel mais le complète efficacement.</p>
+                    </div>
+                    
+                    <div class="article-sources">
+                        <h4>Sources</h4>
+                        <ul>
+                            <li><a href="https://n8n.io/" target="_blank">n8n.io - Site officiel</a></li>
+                            <li><a href="https://docs.n8n.io/" target="_blank">Documentation n8n</a></li>
+                            <li><a href="https://zapier.com/" target="_blank">Zapier - Site officiel</a></li>
+                            <li><a href="https://www.make.com/" target="_blank">Make (ex-Integromat)</a></li>
+                            <li><a href="https://powerautomate.microsoft.com/" target="_blank">Microsoft Power Automate</a></li>
+                            <li><a href="https://community.n8n.io/" target="_blank">Communauté n8n</a></li>
+                        </ul>
+                    </div>
+                `
+            }
+        };
+
+        // Gestion du modal
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('veille-modal');
+            const modalBody = document.getElementById('veille-modal-body');
+            const closeBtn = document.getElementById('close-veille-modal');
+            const overlay = document.querySelector('.veille-modal-overlay');
+            const cards = document.querySelectorAll('.veille-card');
+
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const veilleId = card.getAttribute('data-veille');
+                    
+                    // Redirection vers les pages de détail
+                    if (veilleId === 'avions-chasse') {
+                        window.location.href = 'veille-avions-chasse.html';
+                    } else if (veilleId === 'automatisation') {
+                        window.location.href = 'veille-automatisation.html';
+                    }
+                });
+            });
+
+            const closeModal = () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+            if (overlay) overlay.addEventListener('click', closeModal);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+
+            // Mobile menu toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+    <script src="assets/js/scroll-to-top-footer.js"></script>
+</body>
+
+</html>

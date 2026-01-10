@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Mes Projets - Portfolio Ludovic.C | Réalisations Développement Web</title>
+    <meta name="description"
+        content="Découvrez mes projets de développement web : site e-commerce Symfony, application de gestion, et autres réalisations en PHP, JavaScript et frameworks modernes.">
+    <meta name="keywords" content="projets développement web, Symfony, e-commerce, PHP, portfolio projets">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://votre-domaine.com/projets.html">
+    <meta property="og:title" content="Mes Projets - Portfolio Ludovic.C">
+    <meta property="og:description"
+        content="Découvrez mes réalisations récentes et mes projets en cours de développement.">
+    <meta property="og:image" content="https://votre-domaine.com/assets/images/og-projets.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mes Projets - Portfolio Ludovic.C">
+    <meta name="twitter:description"
+        content="Découvrez mes réalisations récentes et mes projets en cours de développement.">
+
+    <link rel="stylesheet" href="assets/css/css_projet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Police FRICK pour les titres -->
+    <style>
+        @font-face {
+            font-family: 'FRICK';
+            src: url('assets/fonts/FRICK.woff2') format('woff2'),
+                url('assets/fonts/FRICK.woff') format('woff'),
+                url('assets/fonts/FRICK.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+
+    <!-- Nouveaux CSS -->
+    <link rel="stylesheet" href="assets/css/toast.css">
+    <link rel="stylesheet" href="assets/css/accessibility.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link rel="stylesheet" href="assets/css/footer-enhanced.css">
+    <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+
+    <!-- Scripts de compatibilité (chargés tôt) -->
+    <script src="assets/js/browser-compat.js"></script>
+    <script src="assets/js/font-loader.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Profil</a>
+                <a href="projets.html" class="nav-link active">Projets</a>
+                <a href="parcours.html" class="nav-link">Parcours</a>
+                <a href="veille.html" class="nav-link">Veille</a>
+                <a href="contact.html" class="nav-contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="horizontal-projects-section">
+            <div class="projects-sticky-container">
+
+
+                <div class="horizontal-track">
+                    <!-- Projet 1 -->
+                    <article class="project-item">
+                        <a href="ecommerce.html" class="project-item-link">
+                            <div class="project-number">(01)</div>
+                            <div class="project-image-wrapper">
+                                <img src="assets/images/ecommerce/page_accueil.png" alt="Site E-commerce"
+                                    class="project-image">
+                            </div>
+                            <div class="project-info">
+                                <h2 class="project-name">Site E-commerce</h2>
+                                <p class="project-category">Développement Fullstack &mdash; Symfony</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Projet 2 -->
+                    <article class="project-item">
+                        <a href="gestion.html" class="project-item-link">
+                            <div class="project-number">(02)</div>
+                            <div class="project-image-wrapper">
+                                <img src="assets/images/ecommerce/gestion/accueil.png" alt="Application de Gestion"
+                                    class="project-image">
+                            </div>
+                            <div class="project-info">
+                                <h2 class="project-name">Application de Gestion</h2>
+                                <p class="project-category">Logiciel Desktop &mdash; .NET / C#</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Projet 3 -->
+                    <article class="project-item">
+                        <a href="csv-visualisation.html" class="project-item-link">
+                            <div class="project-number">(03)</div>
+                            <div class="project-image-wrapper">
+                                <img src="assets/images/CSV/CSV.png" alt="Visualisation CSV avec Chart.js"
+                                    class="project-image">
+                            </div>
+                            <div class="project-info">
+                                <h2 class="project-name">Visualisation CSV</h2>
+                                <p class="project-category">Visualisation de données &mdash; JavaScript / Chart.js</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Projet 4 -->
+                    <article class="project-item">
+                        <a href="iss-tracking.html" class="project-item-link">
+                            <div class="project-number">(04)</div>
+                            <div class="project-image-wrapper">
+                                <img src="assets/images/ISS/ISS.png" alt="Suivi de l'ISS en temps réel"
+                                    class="project-image">
+                            </div>
+                            <div class="project-info">
+                                <h2 class="project-name">Suivi de l'ISS</h2>
+                                <p class="project-category">Web Application &mdash; JavaScript / Leaflet</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Projet 5 -->
+                    <article class="project-item">
+                        <a href="chatbot-openbiz.html" class="project-item-link">
+                            <div class="project-number">(05)</div>
+                            <div class="project-image-wrapper">
+                                <img src="assets/images/chatbot/chatbot.png" alt="Chatbot Openbiz Dev"
+                                    class="project-image">
+                            </div>
+                            <div class="project-info">
+                                <h2 class="project-name">Chatbot Openbiz Dev</h2>
+                                <p class="project-category">Assistant virtuel &mdash; JavaScript vanilla</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Projet 6 (Placeholder) -->
+                    <article class="project-item">
+                        <span class="project-item-link">
+                            <div class="project-number">(06)</div>
+                            <div class="project-image-wrapper">
+                                <div class="project-image-placeholder">
+                                    <span>Bientôt disponible</span>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h2 class="project-name">Prochain Projet</h2>
+                                <p class="project-category">En cours de réalisation</p>
+                            </div>
+                        </span>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scroll to Top Button - Footer -->
+    <section class="scroll-to-top-footer">
+        <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
+            <span>Retour en haut</span>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <div class="footer-links">
+                    <a href="privacy.html" class="privacy-link">Politique de confidentialité</a>
+                    <span class="footer-separator">|</span>
+                    <a href="cookies.html" class="privacy-link">Politique des cookies</a>
+                    <span class="footer-separator">|</span>
+                    <a href="legal.html" class="privacy-link">Mentions légales</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://github.com/Ludovic-SIO" target="_blank" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ludovic-champrobert/" target="_blank" class="social-btn"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+
+    <!-- Nouveaux scripts -->
+    <script src="assets/js/toast.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+    <script src="assets/js/lazy-load.js"></script>
+    <script src="assets/js/projects-horizontal-scroll.js"></script>
+    <script src="assets/js/scroll-to-top-footer.js"></script>
+    <div class="project-cursor">Voir le projet</div>
+</body>
+
+</html>

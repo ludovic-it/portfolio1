@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- SEO Meta Tags -->
+    <title>Automatisation avec n8n et outils no-code | Veille Ludovic.C</title>
+    <meta name="description"
+        content="L'essor des plateformes d'automatisation no-code/low-code comme n8n, Zapier et Make pour créer des workflows automatisés sans programmation.">
+    <meta name="keywords"
+        content="n8n, automatisation, no-code, low-code, workflow, Zapier, Make, intégration">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://votre-domaine.com/veille-automatisation.html">
+    <meta property="og:title" content="Automatisation avec n8n et outils no-code">
+    <meta property="og:description"
+        content="L'essor des plateformes d'automatisation no-code/low-code pour créer des workflows automatisés.">
+    <meta property="og:image" content="https://votre-domaine.com/assets/images/pc.jpg">
+
+    <link rel="stylesheet" href="assets/css/css_index.css">
+    <link rel="stylesheet" href="assets/css/css_veille.css">
+    <link rel="stylesheet" href="assets/css/breadcrumbs.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        @font-face {
+            font-family: 'FRICK';
+            src: url('assets/fonts/FRICK.woff2') format('woff2'),
+                url('assets/fonts/FRICK.woff') format('woff'),
+                url('assets/fonts/FRICK.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Hero parallax avec image de fond */
+        .veille-hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .veille-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150%;
+            background-image: url('assets/images/pc.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            will-change: transform;
+            z-index: 1;
+        }
+
+        .veille-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
+            z-index: 2;
+        }
+
+        .veille-hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            padding: 0 32px;
+            max-width: 900px;
+        }
+
+        .veille-hero-content .article-meta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .veille-hero-content .article-category,
+        .veille-hero-content .article-date {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 16px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .veille-hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            font-family: 'FRICK', 'Inter', sans-serif;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+            color: #4A7FFF;
+        }
+
+        .veille-hero-content .article-source {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+        }
+
+        /* Contenu principal avec révélation progressive */
+        .veille-content-wrapper {
+            position: relative;
+            background: white;
+            z-index: 4;
+            margin-top: -100px;
+            border-radius: 40px 40px 0 0;
+            padding-top: 80px;
+        }
+
+        .veille-article-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 32px 80px;
+        }
+
+        .veille-article-section {
+            margin-bottom: 64px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .veille-article-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .veille-article-section h4 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #4A7FFF;
+            margin: 0 0 24px 0;
+            font-family: 'FRICK', 'Inter', sans-serif;
+        }
+
+        .veille-article-section p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .veille-article-intro {
+            font-size: 1.375rem;
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-weight: 500;
+            margin-bottom: 48px;
+        }
+
+        .veille-article-sources {
+            margin-top: 64px;
+            padding-top: 48px;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .veille-article-sources h4 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            color: #4A7FFF;
+        }
+
+        .veille-article-sources ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .veille-article-sources li {
+            margin-bottom: 12px;
+        }
+
+        .veille-article-sources a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 1.0625rem;
+            transition: color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .veille-article-sources a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        /* Comparaison des outils */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, rgba(74, 127, 255, 0.05) 0%, rgba(107, 154, 255, 0.05) 100%);
+            border: 2px solid rgba(74, 127, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(74, 127, 255, 0.2);
+            border-color: rgba(74, 127, 255, 0.3);
+        }
+
+        .comparison-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid rgba(74, 127, 255, 0.1);
+        }
+
+        .comparison-header i {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .comparison-header h5 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+            font-family: 'FRICK', 'Inter', sans-serif;
+        }
+
+        .comparison-desc {
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .comparison-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 16px 0;
+        }
+
+        .comparison-features li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        .comparison-features i.fa-check {
+            color: #10b981;
+        }
+
+        .comparison-features i.fa-times {
+            color: #ef4444;
+        }
+
+        .comparison-ideal {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            margin: 0;
+            padding-top: 16px;
+            border-top: 1px solid rgba(74, 127, 255, 0.1);
+        }
+
+        /* Cas d'usage */
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .use-case-card {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(74, 127, 255, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .use-case-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(74, 127, 255, 0.1) 0%, rgba(107, 154, 255, 0.1) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .use-case-card:hover .use-case-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, rgba(74, 127, 255, 0.2) 0%, rgba(107, 154, 255, 0.2) 100%);
+        }
+
+        .use-case-card h5 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 12px 0;
+        }
+
+        .use-case-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(74, 127, 255, 0.1) 0%, rgba(107, 154, 255, 0.1) 100%);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .highlight-box p {
+            font-size: 1.125rem;
+            color: var(--text-primary);
+            line-height: 1.8;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* Benefits list */
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 16px;
+            padding: 24px;
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(4px);
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 16px rgba(74, 127, 255, 0.1);
+        }
+
+        .benefit-item i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .benefit-item h5 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 8px 0;
+        }
+
+        .benefit-item p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .veille-article-section h4 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .veille-article-section h4 i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .comparison-grid,
+            .use-cases-grid,
+            .benefits-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .veille-hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .veille-hero {
+                min-height: 500px;
+            }
+
+            .veille-content-wrapper {
+                margin-top: -50px;
+                border-radius: 30px 30px 0 0;
+                padding-top: 50px;
+            }
+
+            .veille-article-content {
+                padding: 0 24px 60px;
+            }
+
+            .veille-article-section h4 {
+                font-size: 1.5rem;
+            }
+
+            .veille-article-intro {
+                font-size: 1.125rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="assets/css/footer-enhanced.css">
+    <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Profil</a>
+                <a href="projets.html" class="nav-link">Projets</a>
+                <a href="parcours.html" class="nav-link">Parcours</a>
+                <a href="veille.html" class="nav-link active">Veille</a>
+                <a href="contact.html" class="nav-contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+            <div class="container">
+                <div class="breadcrumbs-nav">
+                    <a href="index.html">Accueil</a>
+                    <span class="separator">/</span>
+                    <a href="veille.html">Veille</a>
+                    <span class="separator">/</span>
+                    <span class="current">Automatisation</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero avec image de fond parallaxe -->
+        <section class="veille-hero">
+            <div class="veille-hero-bg" id="hero-bg"></div>
+            <div class="veille-hero-overlay"></div>
+            <div class="veille-hero-content">
+                <div class="article-meta">
+                    <span class="article-category">Automatisation & No-Code</span>
+                    <span class="article-date">18 décembre 2024</span>
+                </div>
+                <h1>Automatisation avec n8n et outils no-code</h1>
+                <p class="article-source">Source : n8n.io / Documentation officielle</p>
+            </div>
+        </section>
+
+        <!-- Contenu principal -->
+        <div class="veille-content-wrapper">
+            <div class="veille-article-content">
+                <div class="veille-article-section visible">
+                    <p class="veille-article-intro">
+                        L'automatisation des processus connaît une révolution grâce aux plateformes no-code/low-code comme n8n, permettant de créer des workflows complexes sans écrire de code.
+                    </p>
+                </div>
+
+                <div class="veille-article-section">
+                    <h4>Qu'est-ce que n8n ?</h4>
+                    <p>n8n (prononcé "n-eight-n") est une plateforme d'automatisation open-source et auto-hébergeable. Contrairement à Zapier ou Make, n8n peut être installé sur son propre serveur, offrant un contrôle total sur les données et aucune limite d'exécution.</p>
+                    <p>L'interface visuelle permet de connecter des "nodes" (nœuds) représentant différents services et actions : APIs, bases de données, services cloud, webhooks, etc. Les workflows peuvent inclure des conditions, des boucles et du code JavaScript personnalisé pour les cas complexes.</p>
+                </div>
+
+                <div class="veille-article-section">
+                    <h4><i class="fas fa-balance-scale"></i> Comparaison des outils d'automatisation</h4>
+                    <div class="comparison-grid">
+                        <div class="comparison-card">
+                            <div class="comparison-header">
+                                <i class="fab fa-node-js"></i>
+                                <h5>n8n</h5>
+                            </div>
+                            <div class="comparison-content">
+                                <p class="comparison-desc">Open-source et auto-hébergeable</p>
+                                <ul class="comparison-features">
+                                    <li><i class="fas fa-check"></i> Gratuit (self-hosted)</li>
+                                    <li><i class="fas fa-check"></i> Contrôle total des données</li>
+                                    <li><i class="fas fa-check"></i> Aucune limite d'exécution</li>
+                                    <li><i class="fas fa-check"></i> Code JavaScript personnalisé</li>
+                                </ul>
+                                <p class="comparison-ideal"><strong>Idéal pour :</strong> Développeurs et entreprises soucieuses de la confidentialité</p>
+                            </div>
+                        </div>
+
+                        <div class="comparison-card">
+                            <div class="comparison-header">
+                                <i class="fas fa-bolt"></i>
+                                <h5>Zapier</h5>
+                            </div>
+                            <div class="comparison-content">
+                                <p class="comparison-desc">Leader du marché, très simple</p>
+                                <ul class="comparison-features">
+                                    <li><i class="fas fa-check"></i> 5000+ intégrations</li>
+                                    <li><i class="fas fa-check"></i> Interface intuitive</li>
+                                    <li><i class="fas fa-times"></i> Coûteux pour volumes importants</li>
+                                    <li><i class="fas fa-check"></i> Support excellent</li>
+                                </ul>
+                                <p class="comparison-ideal"><strong>Idéal pour :</strong> PME et startups</p>
+                            </div>
+                        </div>
+
+                        <div class="comparison-card">
+                            <div class="comparison-header">
+                                <i class="fas fa-project-diagram"></i>
+                                <h5>Make</h5>
+                            </div>
+                            <div class="comparison-content">
+                                <p class="comparison-desc">Interface visuelle puissante</p>
+                                <ul class="comparison-features">
+                                    <li><i class="fas fa-check"></i> Bon rapport qualité/prix</li>
+                                    <li><i class="fas fa-check"></i> Scénarios complexes</li>
+                                    <li><i class="fas fa-check"></i> Branches et itérateurs</li>
+                                    <li><i class="fas fa-check"></i> Plan gratuit disponible</li>
+                                </ul>
+                                <p class="comparison-ideal"><strong>Idéal pour :</strong> Workflows complexes</p>
+                            </div>
+                        </div>
+
+                        <div class="comparison-card">
+                            <div class="comparison-header">
+                                <i class="fab fa-microsoft"></i>
+                                <h5>Power Automate</h5>
+                            </div>
+                            <div class="comparison-content">
+                                <p class="comparison-desc">Intégré Microsoft 365</p>
+                                <ul class="comparison-features">
+                                    <li><i class="fas fa-check"></i> Écosystème Microsoft</li>
+                                    <li><i class="fas fa-check"></i> Office et SharePoint</li>
+                                    <li><i class="fas fa-check"></i> RPA intégré</li>
+                                    <li><i class="fas fa-check"></i> IA intégrée</li>
+                                </ul>
+                                <p class="comparison-ideal"><strong>Idéal pour :</strong> Entreprises Microsoft</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="veille-article-section">
+                    <h4><i class="fas fa-lightbulb"></i> Cas d'usage courants</h4>
+                    <div class="use-cases-grid">
+                        <div class="use-case-card">
+                            <div class="use-case-icon"><i class="fas fa-sync-alt"></i></div>
+                            <h5>Synchronisation de données</h5>
+                            <p>Synchroniser automatiquement les contacts entre un CRM et une liste de diffusion email, maintenir la cohérence entre plusieurs systèmes.</p>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-icon"><i class="fas fa-bell"></i></div>
+                            <h5>Notifications intelligentes</h5>
+                            <p>Recevoir des alertes Slack/Discord quand un événement spécifique se produit (nouvelle commande, erreur serveur, mention sur les réseaux sociaux).</p>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-icon"><i class="fas fa-file-alt"></i></div>
+                            <h5>Traitement de fichiers</h5>
+                            <p>Convertir automatiquement des fichiers uploadés, les renommer selon des règles précises et les organiser dans le cloud.</p>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-icon"><i class="fas fa-brain"></i></div>
+                            <h5>Intégration IA</h5>
+                            <p>Connecter ChatGPT ou Claude pour analyser automatiquement des emails, générer des réponses ou classifier des données.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="veille-article-section">
+                    <h4><i class="fas fa-code"></i> Pourquoi c'est important pour un développeur ?</h4>
+                    <div class="highlight-box">
+                        <p>Maîtriser ces outils permet de créer rapidement des prototypes, d'automatiser les tâches répétitives du quotidien, et de proposer des solutions d'intégration à moindre coût pour les clients. L'approche no-code ne remplace pas le développement traditionnel mais le complète efficacement.</p>
+                    </div>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-rocket"></i>
+                            <div>
+                                <h5>Prototypage rapide</h5>
+                                <p>Créer des démonstrations fonctionnelles en quelques heures au lieu de plusieurs jours</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-tasks"></i>
+                            <div>
+                                <h5>Automatisation personnelle</h5>
+                                <p>Éliminer les tâches répétitives et se concentrer sur le développement à valeur ajoutée</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-dollar-sign"></i>
+                            <div>
+                                <h5>Solutions économiques</h5>
+                                <p>Proposer des intégrations à moindre coût pour les clients sans compromettre la qualité</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <div>
+                                <h5>Complémentarité</h5>
+                                <p>Combiner no-code et développement traditionnel pour des solutions hybrides puissantes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="veille-article-sources">
+                    <h4>Sources</h4>
+                    <ul>
+                        <li><a href="https://n8n.io/" target="_blank"><i class="fas fa-external-link-alt"></i> n8n.io - Site officiel</a></li>
+                        <li><a href="https://docs.n8n.io/" target="_blank"><i class="fas fa-external-link-alt"></i> Documentation n8n</a></li>
+                        <li><a href="https://zapier.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Zapier - Site officiel</a></li>
+                        <li><a href="https://www.make.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Make (ex-Integromat)</a></li>
+                        <li><a href="https://powerautomate.microsoft.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Microsoft Power Automate</a></li>
+                        <li><a href="https://community.n8n.io/" target="_blank"><i class="fas fa-external-link-alt"></i> Communauté n8n</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scroll to Top Button - Footer -->
+    <section class="scroll-to-top-footer">
+        <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
+            <span>Retour en haut</span>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <div class="footer-links">
+                    <a href="privacy.html" class="privacy-link">Politique de confidentialité</a>
+                    <span class="footer-separator">|</span>
+                    <a href="cookies.html" class="privacy-link">Politique des cookies</a>
+                    <span class="footer-separator">|</span>
+                    <a href="legal.html" class="privacy-link">Mentions légales</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://github.com/Ludovic-SIO" target="_blank" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ludovic-champrobert/" target="_blank" class="social-btn"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/scroll-reveal.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+
+    <script>
+        // Effet parallaxe sur l'image de fond
+        const heroBg = document.getElementById('hero-bg');
+        let lastScroll = 0;
+
+        function updateParallax() {
+            const scrollY = window.scrollY;
+            const heroHeight = document.querySelector('.veille-hero').offsetHeight;
+            
+            if (scrollY < heroHeight) {
+                // L'image se déplace plus lentement que le scroll (effet parallaxe)
+                const parallaxSpeed = 0.5;
+                const translateY = scrollY * parallaxSpeed;
+                heroBg.style.transform = `translateY(${translateY}px)`;
+            }
+            
+            lastScroll = scrollY;
+        }
+
+        // Révélation progressive des sections au scroll
+        const sections = document.querySelectorAll('.veille-article-section');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Optimisation avec requestAnimationFrame
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    updateParallax();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Initialisation
+        updateParallax();
+    </script>
+    <script src="assets/js/scroll-to-top-footer.js"></script>
+</body>
+
+</html>

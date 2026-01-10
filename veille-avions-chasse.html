@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- SEO Meta Tags -->
+    <title>Informatique dans les avions de chasse français | Veille Ludovic.C</title>
+    <meta name="description"
+        content="L'évolution des systèmes informatiques embarqués dans les avions de combat modernes de l'armée française, notamment le Rafale et les technologies de demain.">
+    <meta name="keywords"
+        content="avions de chasse, Rafale, systèmes embarqués, défense, cybersécurité, SCAF">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://votre-domaine.com/veille-avions-chasse.html">
+    <meta property="og:title" content="Informatique dans les avions de chasse français">
+    <meta property="og:description"
+        content="L'évolution des systèmes informatiques embarqués dans les avions de combat modernes.">
+    <meta property="og:image" content="https://votre-domaine.com/assets/images/cockpit.jpg">
+
+    <link rel="stylesheet" href="assets/css/css_index.css">
+    <link rel="stylesheet" href="assets/css/css_veille.css">
+    <link rel="stylesheet" href="assets/css/breadcrumbs.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        @font-face {
+            font-family: 'FRICK';
+            src: url('assets/fonts/FRICK.woff2') format('woff2'),
+                url('assets/fonts/FRICK.woff') format('woff'),
+                url('assets/fonts/FRICK.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Hero parallax avec image de fond */
+        .veille-hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .veille-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150%;
+            background-image: url('assets/images/cockpit.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            will-change: transform;
+            z-index: 1;
+        }
+
+        .veille-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
+            z-index: 2;
+        }
+
+        .veille-hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            padding: 0 32px;
+            max-width: 900px;
+        }
+
+        .veille-hero-content .article-meta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .veille-hero-content .article-category,
+        .veille-hero-content .article-date {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 16px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .veille-hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            font-family: 'FRICK', 'Inter', sans-serif;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+            color: #4A7FFF;
+        }
+
+        .veille-hero-content .article-source {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+        }
+
+        /* Contenu principal avec révélation progressive */
+        .veille-content-wrapper {
+            position: relative;
+            background: white;
+            z-index: 4;
+            margin-top: -100px;
+            border-radius: 40px 40px 0 0;
+            padding-top: 80px;
+        }
+
+        .veille-article-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 32px 80px;
+        }
+
+        .veille-article-section {
+            margin-bottom: 64px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .veille-article-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .veille-article-section h4 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #4A7FFF;
+            margin: 0 0 24px 0;
+            font-family: 'FRICK', 'Inter', sans-serif;
+        }
+
+        .veille-article-section p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .veille-article-intro {
+            font-size: 1.375rem;
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-weight: 500;
+            margin-bottom: 48px;
+        }
+
+        .veille-article-sources {
+            margin-top: 64px;
+            padding-top: 48px;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .veille-article-sources h4 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            color: #4A7FFF;
+        }
+
+        .veille-article-sources ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .veille-article-sources li {
+            margin-bottom: 12px;
+        }
+
+        .veille-article-sources a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 1.0625rem;
+            transition: color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .veille-article-sources a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        /* Tech features grid */
+        .tech-features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .tech-feature-card {
+            background: linear-gradient(135deg, rgba(74, 127, 255, 0.05) 0%, rgba(107, 154, 255, 0.05) 100%);
+            border: 2px solid rgba(74, 127, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tech-feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(74, 127, 255, 0.2);
+            border-color: rgba(74, 127, 255, 0.3);
+        }
+
+        .tech-feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(74, 127, 255, 0.1) 0%, rgba(107, 154, 255, 0.1) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .tech-feature-card h5 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 12px 0;
+        }
+
+        .tech-feature-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Security grid */
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .security-item {
+            display: flex;
+            gap: 16px;
+            padding: 24px;
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .security-item:hover {
+            transform: translateX(4px);
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 16px rgba(74, 127, 255, 0.1);
+        }
+
+        .security-item i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .security-item h5 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 8px 0;
+        }
+
+        .security-item p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Future tech grid */
+        .future-tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .future-tech-card {
+            background: linear-gradient(135deg, rgba(74, 127, 255, 0.08) 0%, rgba(107, 154, 255, 0.08) 100%);
+            border: 2px solid rgba(74, 127, 255, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .future-tech-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(74, 127, 255, 0.25);
+            border-color: var(--primary-color);
+        }
+
+        .future-tech-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .future-tech-card h5 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 12px 0;
+        }
+
+        .future-tech-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(74, 127, 255, 0.1) 0%, rgba(107, 154, 255, 0.1) 100%);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .highlight-box p {
+            font-size: 1.125rem;
+            color: var(--text-primary);
+            line-height: 1.8;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .veille-article-section h4 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .veille-article-section h4 i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .tech-features-grid,
+            .security-grid,
+            .future-tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .veille-hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .veille-hero {
+                min-height: 500px;
+            }
+
+            .veille-content-wrapper {
+                margin-top: -50px;
+                border-radius: 30px 30px 0 0;
+                padding-top: 50px;
+            }
+
+            .veille-article-content {
+                padding: 0 24px 60px;
+            }
+
+            .veille-article-section h4 {
+                font-size: 1.5rem;
+            }
+
+            .veille-article-intro {
+                font-size: 1.125rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="assets/css/footer-enhanced.css">
+    <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Profil</a>
+                <a href="projets.html" class="nav-link">Projets</a>
+                <a href="parcours.html" class="nav-link">Parcours</a>
+                <a href="veille.html" class="nav-link active">Veille</a>
+                <a href="contact.html" class="nav-contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+            <div class="container">
+                <div class="breadcrumbs-nav">
+                    <a href="index.html">Accueil</a>
+                    <span class="separator">/</span>
+                    <a href="veille.html">Veille</a>
+                    <span class="separator">/</span>
+                    <span class="current">Avions de chasse</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero avec image de fond parallaxe -->
+        <section class="veille-hero">
+            <div class="veille-hero-bg" id="hero-bg"></div>
+            <div class="veille-hero-overlay"></div>
+            <div class="veille-hero-content">
+                <div class="article-meta">
+                    <span class="article-category">Défense & Systèmes embarqués</span>
+                    <span class="article-date">15 janvier 2025</span>
+                </div>
+                <h1>Informatique dans les avions de chasse français</h1>
+                <p class="article-source">Source : Ministère des Armées</p>
+            </div>
+        </section>
+
+        <!-- Contenu principal -->
+        <div class="veille-content-wrapper">
+            <div class="veille-article-content">
+                <div class="veille-article-section visible">
+                    <p class="veille-article-intro">
+                        Les avions de chasse français modernes, notamment le Rafale, intègrent des systèmes informatiques de pointe qui représentent l'état de l'art en matière de technologies embarquées militaires.
+                    </p>
+                </div>
+
+                <div class="veille-article-section">
+                    <h4><i class="fas fa-microchip"></i> Les systèmes embarqués du Rafale</h4>
+                    <p>Le Rafale, fleuron de l'industrie aéronautique française, dispose d'une architecture informatique distribuée extrêmement sophistiquée. Le système de mission SPECTRA (Système de Protection et d'Évitement des Conduites de Tir du Rafale) utilise des processeurs haute performance pour la détection et le brouillage électronique en temps réel.</p>
+                    
+                    <div class="tech-features-grid">
+                        <div class="tech-feature-card">
+                            <div class="tech-feature-icon"><i class="fas fa-network-wired"></i></div>
+                            <h5>Architecture modulaire</h5>
+                            <p>Plusieurs calculateurs interconnectés via des réseaux de données haute vitesse pour une performance optimale</p>
+                        </div>
+
+                        <div class="tech-feature-card">
+                            <div class="tech-feature-icon"><i class="fas fa-radar"></i></div>
+                            <h5>Fusion de données</h5>
+                            <p>Intégration de multiples capteurs (radar, optronique, électronique) pour une situation tactique complète en temps réel</p>
+                        </div>
+
+                        <div class="tech-feature-card">
+                            <div class="tech-feature-icon"><i class="fas fa-shield-alt"></i></div>
+                            <h5>Système SPECTRA</h5>
+                            <p>Protection et évitement des conduites de tir avec processeurs haute performance pour la détection et le brouillage électronique</p>
+                        </div>
+                    </div>
+
+                    <p>L'avionique du Rafale repose sur une architecture modulaire avec plusieurs calculateurs interconnectés via des réseaux de données haute vitesse. Ces systèmes permettent la fusion de données provenant de multiples capteurs (radar, optronique, électronique) pour offrir au pilote une situation tactique complète et en temps réel.</p>
+                </div>
+
+                <div class="veille-article-section">
+                    <h4><i class="fas fa-lock"></i> Cybersécurité et résilience</h4>
+                    <div class="security-grid">
+                        <div class="security-item">
+                            <i class="fas fa-shield-virus"></i>
+                            <div>
+                                <h5>Protection contre les cyberattaques</h5>
+                                <p>Mécanismes avancés de protection intégrés dans les systèmes embarqués pour prévenir les intrusions malveillantes</p>
+                            </div>
+                        </div>
+                        <div class="security-item">
+                            <i class="fas fa-redo"></i>
+                            <div>
+                                <h5>Architectures redondantes</h5>
+                                <p>Systèmes critiques dupliqués pour assurer la continuité opérationnelle même en cas de panne partielle</p>
+                            </div>
+                        </div>
+                        <div class="security-item">
+                            <i class="fas fa-key"></i>
+                            <div>
+                                <h5>Protocoles sécurisés</h5>
+                                <p>Communication cryptée et protocoles de sécurité renforcés pour protéger les données sensibles</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p>La sécurisation des systèmes embarqués est un enjeu majeur. Les systèmes du Rafale intègrent des mécanismes de protection contre les cyberattaques, avec des architectures redondantes et des protocoles de communication sécurisés. La résilience face aux pannes est assurée par la redondance des systèmes critiques.</p>
+                </div>
+
+                <div class="veille-article-section">
+                    <h4><i class="fas fa-rocket"></i> Évolutions futures : Le programme SCAF</h4>
+                    <div class="highlight-box">
+                        <p>Le programme SCAF (Système de Combat Aérien du Futur) prévoit l'intégration de technologies encore plus avancées, représentant une nouvelle génération de capacités aéronautiques militaires.</p>
+                    </div>
+                    <div class="future-tech-grid">
+                        <div class="future-tech-card">
+                            <i class="fas fa-brain"></i>
+                            <h5>Intelligence Artificielle</h5>
+                            <p>Aide à la décision en temps réel, reconnaissance automatique de cibles, optimisation des trajectoires de combat</p>
+                        </div>
+                        <div class="future-tech-card">
+                            <i class="fas fa-atom"></i>
+                            <h5>Communication quantique</h5>
+                            <p>Systèmes de communication inviolables basés sur les principes de la mécanique quantique</p>
+                        </div>
+                        <div class="future-tech-card">
+                            <i class="fas fa-cloud"></i>
+                            <h5>Architectures cloud-edge</h5>
+                            <p>Traitement distribué des données entre le cloud et les systèmes embarqués pour une puissance de calcul maximale</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="veille-article-sources">
+                    <h4>Sources</h4>
+                    <ul>
+                        <li><a href="https://www.defense.gouv.fr/air/equipements/avions-combat/rafale" target="_blank"><i class="fas fa-external-link-alt"></i> Ministère des Armées - Le Rafale</a></li>
+                        <li><a href="https://www.dassault-aviation.com/fr/defense/rafale/" target="_blank"><i class="fas fa-external-link-alt"></i> Dassault Aviation - Rafale</a></li>
+                        <li><a href="https://www.thalesgroup.com/fr/activites/defense/air/systemes-avioniques" target="_blank"><i class="fas fa-external-link-alt"></i> Thales - Systèmes avioniques</a></li>
+                        <li><a href="https://www.safran-group.com/fr/produits-services/systemes-avioniques" target="_blank"><i class="fas fa-external-link-alt"></i> Safran - Électronique de défense</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scroll to Top Button - Footer -->
+    <section class="scroll-to-top-footer">
+        <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
+            <span>Retour en haut</span>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <div class="footer-links">
+                    <a href="privacy.html" class="privacy-link">Politique de confidentialité</a>
+                    <span class="footer-separator">|</span>
+                    <a href="cookies.html" class="privacy-link">Politique des cookies</a>
+                    <span class="footer-separator">|</span>
+                    <a href="legal.html" class="privacy-link">Mentions légales</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://github.com/Ludovic-SIO" target="_blank" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ludovic-champrobert/" target="_blank" class="social-btn"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/scroll-reveal.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+
+    <script>
+        // Effet parallaxe sur l'image de fond
+        const heroBg = document.getElementById('hero-bg');
+        let lastScroll = 0;
+
+        function updateParallax() {
+            const scrollY = window.scrollY;
+            const heroHeight = document.querySelector('.veille-hero').offsetHeight;
+            
+            if (scrollY < heroHeight) {
+                // L'image se déplace plus lentement que le scroll (effet parallaxe)
+                const parallaxSpeed = 0.5;
+                const translateY = scrollY * parallaxSpeed;
+                heroBg.style.transform = `translateY(${translateY}px)`;
+            }
+            
+            lastScroll = scrollY;
+        }
+
+        // Révélation progressive des sections au scroll
+        const sections = document.querySelectorAll('.veille-article-section');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Optimisation avec requestAnimationFrame
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    updateParallax();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Initialisation
+        updateParallax();
+    </script>
+    <script src="assets/js/scroll-to-top-footer.js"></script>
+</body>
+
+</html>

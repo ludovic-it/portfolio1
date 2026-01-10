@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- SEO Meta Tags -->
+    <title>Visualisation CSV avec JavaScript et Chart.js | Portfolio Ludovic.C</title>
+    <meta name="description"
+        content="Projet de visualisation de données CSV avec JavaScript, utilisant fetch() et Chart.js pour afficher des graphiques interactifs de températures globales.">
+    <meta name="keywords" content="JavaScript, CSV, Chart.js, fetch API, visualisation données, température NASA">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://votre-domaine.com/csv-visualisation.html">
+    <meta property="og:title" content="Visualisation CSV avec JavaScript et Chart.js">
+    <meta property="og:description"
+        content="Projet complet de visualisation de données CSV avec JavaScript, fetch API et Chart.js.">
+    <meta property="og:image" content="https://votre-domaine.com/assets/images/CSV/CSV.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Visualisation CSV avec JavaScript et Chart.js">
+    <meta name="twitter:description" content="Projet de visualisation de données CSV avec JavaScript.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Fragment+Mono:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css">
+
+    <!-- Nouveaux CSS -->
+    <link rel="stylesheet" href="assets/css/scroll-reveal.css">
+    <link rel="stylesheet" href="assets/css/accessibility.css">
+    <link rel="stylesheet" href="assets/css/breadcrumbs.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link rel="stylesheet" href="assets/css/css_project-detail.css">
+    <link rel="stylesheet" href="assets/css/footer-enhanced.css">
+    <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+</head>
+
+<body>
+
+    <main>
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+            <div class="container">
+                <div class="breadcrumbs-nav">
+                    <a href="index.html">Accueil</a>
+                    <span class="separator">/</span>
+                    <a href="projets.html">Projets</a>
+                    <span class="separator">/</span>
+                    <span class="current">Visualisation CSV</span>
+                </div>
+            </div>
+        </nav>
+
+        <section class="project-detail">
+            <div class="container">
+                <div class="project-header">
+                    <a href="projets.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour aux projets</a>
+                    <h1>Visualisation CSV avec JavaScript</h1>
+                    <p class="project-subtitle">Projet de visualisation de données CSV avec fetch() et Chart.js pour
+                        afficher des graphiques interactifs</p>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="project-hero-image">
+                    <img src="assets/images/CSV/CSV.png"
+                        alt="Visualisation graphique des données CSV" class="hero-img" loading="lazy"
+                        onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop'">
+                </div>
+
+                <div class="project-content-wrapper">
+                    <div class="project-main">
+                        <!-- Présentation du projet -->
+                        <section class="detail-section">
+                            <h2>Présentation du projet</h2>
+                            <p>
+                                Ce projet consiste à développer une application web permettant de lire, parser et
+                                visualiser des données CSV à l'aide de JavaScript natif. L'objectif principal est de
+                                démontrer l'utilisation de l'API <code>fetch()</code> pour récupérer des fichiers CSV,
+                                de parser ces données, et de les visualiser sous forme de graphiques interactifs avec la
+                                bibliothèque Chart.js.
+                            </p>
+                            <p>
+                                Le projet inclut deux implémentations : une version simple qui lit et affiche les données
+                                dans la console, et une version complète qui génère un graphique en barres visualisant
+                                les températures globales moyennes de 1880 à 2024 à partir des données de la NASA.
+                            </p>
+                            <p>
+                                Ce projet illustre les concepts fondamentaux du traitement de données côté client,
+                                notamment la manipulation de fichiers CSV, l'utilisation d'APIs asynchrones, et la
+                                création de visualisations de données interactives.
+                            </p>
+                        </section>
+
+                        <!-- Fonctionnalités principales -->
+                        <section class="detail-section">
+                            <h2>Fonctionnalités principales</h2>
+                            <p>
+                                Le projet offre plusieurs fonctionnalités essentielles pour le traitement et la
+                                visualisation de données CSV :
+                            </p>
+
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-file-csv"></i> Lecture de fichiers CSV</h4>
+                                    <p>Utilisation de <code>fetch()</code> pour récupérer des fichiers CSV depuis le
+                                        serveur de manière asynchrone.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-code"></i> Parsing des données</h4>
+                                    <p>Transformation des fichiers CSV texte en structures de données JavaScript
+                                        exploitables (tableaux, objets).</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-chart-bar"></i> Visualisation graphique</h4>
+                                    <p>Création de graphiques interactifs avec Chart.js pour représenter visuellement
+                                        les données.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-filter"></i> Traitement des données</h4>
+                                    <p>Filtrage, transformation et calcul de valeurs dérivées (comme l'ajout d'une valeur
+                                        constante pour ajuster l'affichage).</p>
+                                </div>
+                            </div>
+
+                            <h3>Structure des fichiers CSV</h3>
+                            <p>
+                                Les fichiers CSV utilisés contiennent des données de température globale annuelle. Le
+                                fichier <code>ZonAnn.Ts+dSST.csv</code> inclut les colonnes suivantes :
+                            </p>
+                            <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-secondary);">
+                                <li><strong>Year</strong> : L'année de mesure</li>
+                                <li><strong>Glob</strong> : Température globale moyenne</li>
+                                <li><strong>NHem</strong> : Température hémisphère nord</li>
+                                <li><strong>SHem</strong> : Température hémisphère sud</li>
+                                <li>Et d'autres colonnes pour différentes zones géographiques</li>
+                            </ul>
+
+                            <p>
+                                Le format CSV est parsé ligne par ligne, en ignorant la première ligne (en-têtes), puis
+                                chaque ligne est divisée par les virgules pour extraire les valeurs individuelles.
+                            </p>
+                        </section>
+
+                        <!-- Architecture -->
+                        <section class="detail-section">
+                            <h2>Architecture</h2>
+                            <p>
+                                Le projet suit une architecture simple et modulaire basée sur JavaScript vanilla, sans
+                                framework lourd. L'architecture se compose de trois couches principales :
+                            </p>
+
+                            <h3>1. Couche de récupération des données</h3>
+                            <p>
+                                La fonction <code>getData()</code> utilise l'API <code>fetch()</code> pour récupérer le
+                                fichier CSV. Cette fonction est asynchrone et retourne une Promise, permettant une
+                                gestion élégante des opérations asynchrones.
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-javascript">async function getData() {
+    try {
+        let response = await fetch('ZonAnn.Ts+dSST.csv');
+        let data = await response.text();
+        
+        let table = data.split('\n');
+        table = table.slice(1); // Supprimer la première ligne (en-têtes)
+        
+        table.forEach(ligne => {
+            let colonnes = ligne.split(',');
+            let annee = colonnes[0];
+            let temp = colonnes[1];
+            
+            xLabels.push(annee);
+            yLabels.push(parseFloat(temp) + 14);
+        });
+    }
+    catch (e) {
+        console.log('Erreur : ');
+        console.log(e);
+    }
+}</code></pre>
+                            </div>
+
+                            <h3>2. Couche de traitement des données</h3>
+                            <p>
+                                Les données parsées sont stockées dans des tableaux séparés pour les labels (axes X) et
+                                les valeurs (axes Y). Les valeurs de température sont converties en nombres flottants et
+                                ajustées pour l'affichage (+14 pour normaliser l'échelle).
+                            </p>
+
+                            <h3>3. Couche de visualisation</h3>
+                            <p>
+                                Chart.js est utilisé pour créer un graphique en barres. La configuration inclut :
+                            </p>
+                            <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-secondary);">
+                                <li>Type de graphique : barres</li>
+                                <li>Labels sur l'axe X : années (1880-2024)</li>
+                                <li>Données sur l'axe Y : températures moyennes</li>
+                                <li>Personnalisation des couleurs et bordures</li>
+                                <li>Formatage de l'axe Y avec le symbole °C</li>
+                            </ul>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-javascript">const ctx = document.getElementById('myChart');
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: xLabels,
+        datasets: [{
+            label: 'Global Average Temperature ',
+            data: yLabels,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                min: 13,
+                ticks: {
+                    callback: function(value, index, ticks) {
+                        return value + '°';
+                    }
+                }
+            }
+        }
+    }
+});</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- Développement -->
+                        <section class="detail-section">
+                            <h2>Développement</h2>
+
+                            <h3>Version 1 : Lecture simple avec console.log</h3>
+                            <p>
+                                La première version (<code>index1.html</code> et <code>index1.js</code>) démontre les
+                                concepts de base de la lecture de fichiers CSV. Elle utilise <code>fetch()</code> pour
+                                récupérer le fichier, parse le contenu, et affiche les résultats dans la console du
+                                navigateur.
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-javascript">async function getData(){
+    try{
+        let response = await fetch('test.csv');
+        let data = await response.text();
+        
+        table = data.split('\n').slice(1);
+        
+        console.log(table);
+        
+        table.forEach(ligne => {
+            let colonnes = ligne.split(',');
+            let annee = colonnes[0];
+            let temp = colonnes[1];
+            console.log(annee, temp);
+        });
+    }
+    catch(e){
+        console.log('Erreur : ');
+        console.log(e);
+    }
+}
+
+getData();</code></pre>
+                            </div>
+
+                            <p>
+                                Cette version est idéale pour comprendre le flux de données : récupération →
+                                parsing → traitement. Elle sert de point de départ pour les développeurs débutants
+                                souhaitant comprendre le traitement de fichiers CSV en JavaScript.
+                            </p>
+
+                            <h3>Version 2 : Visualisation complète avec Chart.js</h3>
+                            <p>
+                                La deuxième version (<code>index.html</code> et <code>index.js</code>) étend la
+                                fonctionnalité avec une visualisation graphique complète. Cette implémentation :
+                            </p>
+
+                            <div class="features-grid roles-grid">
+                                <div class="feature-item role-card">
+                                    <span class="role-number">01</span>
+                                    <h4>Récupération asynchrone</h4>
+                                    <p>Utilise <code>async/await</code> pour gérer les opérations asynchrones de manière
+                                        propre et lisible.</p>
+                                </div>
+                                <div class="feature-item role-card">
+                                    <span class="role-number">02</span>
+                                    <h4>Stockage des données</h4>
+                                    <p>Maintient deux tableaux globaux (<code>xLabels</code> et <code>yLabels</code>)
+                                        pour séparer les labels et les valeurs.</p>
+                                </div>
+                                <div class="feature-item role-card">
+                                    <span class="role-number">03</span>
+                                    <h4>Rendu graphique</h4>
+                                    <p>Crée un graphique interactif avec Chart.js une fois les données chargées, en
+                                        utilisant l'élément canvas HTML5.</p>
+                                </div>
+                            </div>
+
+                            <h3>Gestion des erreurs</h3>
+                            <p>
+                                Le code implémente une gestion d'erreurs robuste avec des blocs <code>try/catch</code>.
+                                Si le fichier CSV n'est pas trouvé ou s'il y a une erreur lors du parsing, un message
+                                d'erreur est affiché dans la console, permettant un débogage facile.
+                            </p>
+
+                            <h3>Optimisations et bonnes pratiques</h3>
+                            <p>
+                                Plusieurs bonnes pratiques sont appliquées dans ce projet :
+                            </p>
+                            <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-secondary);">
+                                <li><strong>Asynchrone</strong> : Utilisation d'<code>async/await</code> pour un code
+                                    plus lisible</li>
+                                <li><strong>Gestion d'erreurs</strong> : Blocs try/catch pour capturer les erreurs</li>
+                                <li><strong>Parsing sécurisé</strong> : Conversion explicite avec <code>parseFloat()</code>
+                                    pour éviter les erreurs de type</li>
+                                <li><strong>Séparation des préoccupations</strong> : Fonctions dédiées pour la
+                                    récupération et l'affichage</li>
+                                <li><strong>Performance</strong> : Utilisation de <code>slice(1)</code> pour ignorer
+                                    efficacement la première ligne</li>
+                            </ul>
+                        </section>
+
+                        <!-- Technologies utilisées -->
+                        <section class="detail-section">
+                            <h2>Technologies utilisées</h2>
+                            <p>
+                                Le projet utilise exclusivement des technologies web standards et une bibliothèque
+                                externe pour la visualisation :
+                            </p>
+
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <h4><i class="fab fa-js"></i> JavaScript (ES6+)</h4>
+                                    <p>Langage de programmation principal, utilisant les fonctionnalités modernes comme
+                                        <code>async/await</code>, <code>fetch()</code>, et les fonctions fléchées.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-network-wired"></i> Fetch API</h4>
+                                    <p>API native du navigateur pour récupérer des ressources (fichiers CSV) de manière
+                                        asynchrone, remplaçant l'ancien XMLHttpRequest.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-chart-line"></i> Chart.js</h4>
+                                    <p>Bibliothèque JavaScript open-source pour créer des graphiques interactifs et
+                                        responsives, utilisée ici pour générer des graphiques en barres.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fab fa-html5"></i> HTML5</h4>
+                                    <p>Structure de la page web, avec l'élément <code>&lt;canvas&gt;</code> utilisé par
+                                        Chart.js pour le rendu graphique.</p>
+                                </div>
+                            </div>
+
+                            <h3>Installation et utilisation</h3>
+                            <p>
+                                Pour utiliser ce projet, il suffit de :
+                            </p>
+                            <ol style="margin-left: 24px; margin-bottom: 16px; color: var(--text-secondary);">
+                                <li>Télécharger ou cloner les fichiers du projet</li>
+                                <li>Ouvrir <code>index.html</code> dans un navigateur web moderne</li>
+                                <li>Chart.js est chargé via CDN, aucune installation supplémentaire n'est nécessaire</li>
+                                <li>Assurer que les fichiers CSV sont dans le même répertoire que les fichiers HTML/JS
+                                </li>
+                            </ol>
+                        </section>
+
+                        <!-- Compétences techniques -->
+                        <section class="detail-section">
+                            <h2>Compétences techniques mises en œuvre</h2>
+                            <p>
+                                Ce projet démontre plusieurs compétences techniques essentielles en développement web
+                                front-end :
+                            </p>
+
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <h4>Programmation asynchrone</h4>
+                                    <p>Maîtrise des Promises et de la syntaxe async/await pour gérer les opérations
+                                        asynchrones.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>Manipulation de données</h4>
+                                    <p>Parsing et transformation de fichiers CSV en structures de données JavaScript.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>Visualisation de données</h4>
+                                    <p>Intégration et configuration de bibliothèques de visualisation (Chart.js).</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>Gestion d'erreurs</h4>
+                                    <p>Implémentation de mécanismes de gestion d'erreurs robustes avec try/catch.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>APIs Web modernes</h4>
+                                    <p>Utilisation de l'API Fetch pour les requêtes HTTP asynchrones.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>Canvas HTML5</h4>
+                                    <p>Compréhension de l'utilisation de l'élément canvas pour le rendu graphique.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Structure des fichiers -->
+                        <section class="detail-section">
+                            <h2>Structure des fichiers du projet</h2>
+                            <p>
+                                Le projet est organisé de manière simple et claire :
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-plaintext">projet-csv/
+├── index.html          # Version complète avec graphique
+├── index.js            # Script principal avec visualisation Chart.js
+├── index1.html         # Version simple pour la démonstration
+├── index1.js           # Script simple avec console.log
+├── test.csv            # Fichier CSV de test simple
+├── ZonAnn.Ts+dSST.csv  # Données complètes de température NASA
+└── documentation.html  # Cette documentation</code></pre>
+                            </div>
+
+                            <h3>Description des fichiers</h3>
+                            <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-secondary);">
+                                <li><strong>index.html/index.js</strong> : Version complète avec visualisation
+                                    graphique interactive</li>
+                                <li><strong>index1.html/index1.js</strong> : Version éducative simple montrant les
+                                    concepts de base</li>
+                                <li><strong>test.csv</strong> : Fichier CSV simplifié pour les tests et
+                                    l'apprentissage</li>
+                                <li><strong>ZonAnn.Ts+dSST.csv</strong> : Données réelles de température globale de la
+                                    NASA (1880-2024)</li>
+                            </ul>
+                        </section>
+
+                        <!-- Cas d'usage et extensions -->
+                        <section class="detail-section">
+                            <h2>Cas d'usage et extensions possibles</h2>
+                            <p>
+                                Ce projet peut servir de base pour de nombreuses applications :
+                            </p>
+
+                            <h3>Applications possibles</h3>
+                            <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-secondary);">
+                                <li><strong>Tableaux de bord analytiques</strong> : Visualisation de métriques
+                                    business</li>
+                                <li><strong>Rapports climatiques</strong> : Analyse de données météorologiques</li>
+                                <li><strong>Analyse financière</strong> : Visualisation de données boursières ou
+                                    comptables</li>
+                                <li><strong>Tableaux de bord IoT</strong> : Affichage de données de capteurs</li>
+                                <li><strong>Rapports de performance</strong> : Suivi de KPI et métriques</li>
+                            </ul>
+
+                            <h3>Extensions possibles</h3>
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <h4>Filtrage interactif</h4>
+                                    <p>Ajouter des contrôles pour filtrer les données par période ou par critère.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>Graphiques multiples</h4>
+                                    <p>Afficher plusieurs graphiques pour comparer différentes colonnes du CSV.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>Export de données</h4>
+                                    <p>Permettre l'export du graphique en image (PNG, JPG) ou des données en JSON.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>Upload de fichiers</h4>
+                                    <p>Ajouter une fonctionnalité pour uploader et visualiser n'importe quel fichier CSV.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Conclusion -->
+                        <section class="detail-section">
+                            <h2>Conclusion</h2>
+                            <p>
+                                Ce projet démontre comment JavaScript natif peut être utilisé efficacement pour traiter
+                                et visualiser des données CSV sans dépendre de frameworks lourds. Il illustre les
+                                concepts fondamentaux du développement web moderne : programmation asynchrone, manipulation
+                                de données, et création d'interfaces utilisateur interactives.
+                            </p>
+                            <p>
+                                L'approche modulaire et la simplicité du code font de ce projet une excellente base pour
+                                apprendre ou enseigner le traitement de données côté client. Les deux versions (simple et
+                                complète) permettent une progression graduelle dans la compréhension des concepts.
+                            </p>
+                            <p>
+                                Le projet peut facilement être étendu avec des fonctionnalités supplémentaires comme le
+                                filtrage, la recherche, ou l'intégration avec des APIs externes pour récupérer des
+                                données en temps réel.
+                            </p>
+                        </section>
+
+                        <!-- Palette de couleurs -->
+                        <section class="detail-section">
+                            <h2 class="color-palette-title">Palette de couleurs</h2>
+                            <p style="margin-bottom: 32px; color: var(--text-secondary); font-size: 0.9375rem;">
+                                Ce projet utilise une palette de <strong>6</strong> couleurs principales issues de Chart.js
+                                et du design system
+                            </p>
+                            <div class="color-palette">
+                                <div class="color-swatch" style="background-color: #1a1a1a;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #1a1a1a</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #6f42c1;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #6f42c1</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #ff6384;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #ff6384</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #0dcaf0;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #0dcaf0</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #ffc107;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #ffc107</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #ffffff; border: 1px solid #e0e0e0;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #ffffff</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p style="margin-top: 24px; color: var(--text-secondary); font-size: 0.9375rem;">
+                                <strong>Note :</strong> Chart.js utilise par défaut la couleur <code>rgba(255, 99, 132,
+                                    0.2)</code> pour le remplissage des barres et <code>rgba(255, 99, 132, 1)</code> pour
+                                les bordures, ce qui correspond à un rose/rouge (#ff6384 en hexadécimal).
+                            </p>
+                        </section>
+
+                        <!-- Exemples de code -->
+                        <section class="detail-section">
+                            <h2>Exemples de code détaillés</h2>
+
+                            <h3>Parsing d'une ligne CSV</h3>
+                            <p>
+                                Voici comment une ligne CSV est parsée et transformée en données utilisables :
+                            </p>
+                            <div class="code-block typing-code">
+                                <pre><code class="language-javascript">// Exemple de ligne CSV : "1880,-.18,-.30,-.05"
+table.forEach(ligne => {
+    // Diviser la ligne par les virgules
+    let colonnes = ligne.split(',');
+    
+    // Extraire les valeurs
+    let annee = colonnes[0];        // "1880"
+    let temp = colonnes[1];         // "-.18"
+    
+    // Stocker dans les tableaux
+    xLabels.push(annee);                    // Pour l'axe X
+    yLabels.push(parseFloat(temp) + 14);    // Pour l'axe Y (ajout de 14 pour normaliser)
+});</code></pre>
+                            </div>
+
+                            <h3>Configuration Chart.js avancée</h3>
+                            <p>
+                                La configuration complète du graphique Chart.js inclut plusieurs options de
+                                personnalisation :
+                            </p>
+                            <div class="code-block typing-code">
+                                <pre><code class="language-javascript">options: {
+    responsive: true,                    // Le graphique s'adapte à la taille du conteneur
+    maintainAspectRatio: false,         // Permet de contrôler les proportions
+    scales: {
+        y: {
+            min: 13,                     // Valeur minimale de l'axe Y
+            beginAtZero: false,          // Ne commence pas à zéro pour mieux voir les variations
+            ticks: {
+                callback: function(value, index, ticks) {
+                    return value + '°';  // Formatage personnalisé avec le symbole °
+                }
+            }
+        },
+        x: {
+            ticks: {
+                maxRotation: 45,         // Rotation des labels pour éviter le chevauchement
+                minRotation: 0
+            }
+        }
+    },
+    plugins: {
+        legend: {
+            display: true,               // Afficher la légende
+            position: 'top'
+        },
+        tooltip: {
+            enabled: true                // Afficher les tooltips au survol
+        }
+    }
+}</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- Liens -->
+                        <section class="detail-section">
+                            <h2>Liens et ressources</h2>
+                            <div class="project-links">
+                                <a href="#" class="link-btn"><i class="fab fa-github"></i> Code Source</a>
+                                <a href="https://www.chartjs.org/docs/latest/" target="_blank" class="link-btn"><i
+                                        class="fas fa-book"></i> Documentation Chart.js</a>
+                                <a href="https://developer.mozilla.org/fr/docs/Web/API/Fetch_API" target="_blank"
+                                    class="link-btn"><i class="fas fa-book"></i> Documentation Fetch API</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-projects">
+            <div class="container">
+                <h2>Autres projets</h2>
+                <div class="projects-grid">
+                    <a href="ecommerce.html" class="project-card">
+                        <div class="project-card-image">
+                            <img src="assets/images/ecommerce/page_accueil.png" alt="Site E-commerce" loading="lazy">
+                        </div>
+                        <h3>SIO-SHOES</h3>
+                        <p>Site e-commerce de vente de chaussures développé avec Symfony</p>
+                        <div class="project-technologies">
+                            <span class="tech-small">Symfony</span>
+                            <span class="tech-small">PHP</span>
+                            <span class="tech-small">MySQL</span>
+                        </div>
+                    </a>
+                    <a href="gestion.html" class="project-card">
+                        <div class="project-card-image">
+                            <img src="assets/images/ecommerce/gestion/accueil.png" alt="Logiciel de gestion" loading="lazy">
+                        </div>
+                        <h3>Logiciel de gestion</h3>
+                        <p>Application de gestion d'entreprise avec base de données complexe</p>
+                        <div class="project-technologies">
+                            <span class="tech-small">C#</span>
+                            <span class="tech-small">SQL</span>
+                            <span class="tech-small">WPF</span>
+                        </div>
+                    </a>
+                    <a href="iss-tracking.html" class="project-card">
+                        <div class="project-card-image">
+                            <img src="assets/images/ISS/ISS.png" alt="Suivi de l'ISS" loading="lazy">
+                        </div>
+                        <h3>Suivi de l'ISS</h3>
+                        <p>Application web de suivi de la Station Spatiale Internationale en temps réel</p>
+                        <div class="project-technologies">
+                            <span class="tech-small">JavaScript</span>
+                            <span class="tech-small">Leaflet</span>
+                            <span class="tech-small">API</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scroll to Top Button - Footer -->
+    <section class="scroll-to-top-footer">
+        <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
+            <span>Retour en haut</span>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <div class="footer-links">
+                    <a href="privacy.html" class="privacy-link">Politique de confidentialité</a>
+                    <span class="footer-separator">|</span>
+                    <a href="cookies.html" class="privacy-link">Politique des cookies</a>
+                    <span class="footer-separator">|</span>
+                    <a href="legal.html" class="privacy-link">Mentions légales</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://github.com/Ludovic-SIO" target="_blank" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ludovic-champrobert/" target="_blank" class="social-btn"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/toc-island.js"></script>
+    <script src="assets/js/code-highlight.js"></script>
+    <script src="assets/js/typing-effect.js"></script>
+
+    <!-- Nouveaux scripts -->
+    <script src="assets/js/scroll-reveal.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+    <script src="assets/js/lazy-load.js"></script>
+
+    <script>
+        // Initialiser le highlight.js
+        hljs.highlightAll();
+
+        // Toggle TOC dropdown
+        document.addEventListener('DOMContentLoaded', () => {
+            const tocHeader = document.querySelector('.toc-header');
+            const tocIsland = document.querySelector('.toc-island');
+            if (tocHeader && tocIsland) {
+                tocHeader.addEventListener('click', () => {
+                    tocIsland.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+    <script src="assets/js/scroll-to-top-footer.js"></script>
+</body>
+
+</html>
