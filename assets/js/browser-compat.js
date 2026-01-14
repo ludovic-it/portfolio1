@@ -80,6 +80,15 @@
                 return CSS.supports('display', 'grid');
             })();
 
+            // CSS Animations
+            this.features.cssAnimations = (function() {
+                return CSS.supports('animation', 'fadeInUp 0.6s ease forwards') ||
+                       CSS.supports('-webkit-animation', 'fadeInUp 0.6s ease forwards');
+            })();
+
+            // prefers-reduced-motion
+            this.features.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
             // Fetch API
             this.features.fetch = 'fetch' in window;
 
@@ -176,6 +185,18 @@
             }
             if (!this.features.canvas) {
                 document.documentElement.classList.add('no-canvas');
+            }
+            if (!this.features.cssAnimations || this.features.prefersReducedMotion) {
+                document.documentElement.classList.add('no-css-animations');
+                // Forcer l'affichage des cards de veille si les animations ne sont pas supportées
+                setTimeout(() => {
+                    const veilleCards = document.querySelectorAll('.veille-card');
+                    veilleCards.forEach(card => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                        card.style.animation = 'none';
+                    });
+                }, 100);
             }
         },
 

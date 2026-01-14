@@ -11,6 +11,16 @@
         content="Contactez Ludovic CHAMPROBERT pour discuter de vos projets ou opportunités d'emploi. Réponse généralement en 24h.">
     <meta name="keywords" content="contact développeur, recrutement développeur, projet web">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RWN3523KSG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RWN3523KSG');
+    </script>
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://votre-domaine.com/contact.html">
@@ -190,27 +200,45 @@
     <script src="assets/js/contact-form-validation.js"></script>
     <script src="assets/js/accessibility.js"></script>
     <script src="assets/js/lazy-load.js"></script>
+    <script src="assets/js/recaptcha.js"></script>
 
     <script>
         // Initialiser EmailJS
         emailjs.init('z0cmbUGcTGsl_6977');
 
-        // Envoi du formulaire avec EmailJS
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
+        // Envoi du formulaire avec EmailJS et reCAPTCHA
+        document.getElementById('contactForm').addEventListener('submit', async function (e) {
             e.preventDefault();
             
             const form = this;
             const submitBtn = form.querySelector('button[type="submit"]');
             
             submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Vérification... <span class="btn-dot"></span>';
+
+            // Exécuter reCAPTCHA
+            const recaptchaToken = await window.recaptcha.execute('contact_form');
+            
+            if (!recaptchaToken) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Envoyez <span class="btn-dot"></span>';
+                if (typeof toast !== 'undefined') {
+                    toast.error('Erreur de vérification. Veuillez réessayer.');
+                } else {
+                    alert('Erreur de vérification. Veuillez réessayer.');
+                }
+                return;
+            }
+
             submitBtn.innerHTML = 'Envoi en cours... <span class="btn-dot"></span>';
 
-            // Envoyer l'email via EmailJS
+            // Envoyer l'email via EmailJS avec le token reCAPTCHA
             emailjs.send('service_i9qujao', 'template_5twpb0n', {
                 from_name: document.getElementById('name').value,
                 from_email: document.getElementById('email').value,
                 message: document.getElementById('message').value,
-                to_email: 'champludovic91@gmail.com'
+                to_email: 'champludovic91@gmail.com',
+                recaptcha_token: recaptchaToken
             })
             .then(function() {
                 submitBtn.disabled = false;

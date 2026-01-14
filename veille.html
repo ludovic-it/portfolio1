@@ -12,6 +12,16 @@
     <meta name="keywords"
         content="veille technologique, n8n, automatisation, no-code, avions de chasse, Rafale, systèmes embarqués">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RWN3523KSG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RWN3523KSG');
+    </script>
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://votre-domaine.com/veille.html">
@@ -89,7 +99,10 @@
                 <div class="veille-grid">
                     <article class="veille-card reveal" data-veille="avions-chasse">
                         <div class="veille-image">
-                            <img src="assets/images/cockpit.jpg" alt="Avion de chasse français" loading="lazy">
+                            <picture>
+                                <source srcset="assets/images/cockpit.webp" type="image/webp">
+                                <img src="assets/images/cockpit.jpg" alt="Cockpit d'un avion de chasse français Rafale avec écrans tactiles et systèmes informatiques embarqués" loading="lazy">
+                            </picture>
                             <div class="veille-card-badge">
                                 <i class="fas fa-fighter-jet"></i>
                                 <span>Défense</span>
@@ -112,7 +125,10 @@
 
                     <article class="veille-card reveal" data-veille="automatisation" style="animation-delay: 0.1s;">
                         <div class="veille-image">
-                            <img src="assets/images/pc.jpg" alt="Automatisation avec n8n" loading="lazy">
+                            <picture>
+                                <source srcset="assets/images/pc.webp" type="image/webp">
+                                <img src="assets/images/pc.jpg" alt="Ordinateur avec interface d'automatisation n8n affichant des workflows et intégrations" loading="lazy">
+                            </picture>
                             <div class="veille-card-badge">
                                 <i class="fas fa-robot"></i>
                                 <span>Automatisation</span>
@@ -304,11 +320,26 @@
 
         // Gestion du modal
         document.addEventListener('DOMContentLoaded', () => {
+            // Fallback pour forcer l'affichage des cards si l'animation CSS ne fonctionne pas
+            const cards = document.querySelectorAll('.veille-card');
+            
+            // Fallback : forcer l'affichage après un délai si les cards sont toujours invisibles
+            setTimeout(() => {
+                cards.forEach(card => {
+                    const computedStyle = window.getComputedStyle(card);
+                    const opacity = parseFloat(computedStyle.opacity);
+                    if (opacity < 0.1) {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                        card.style.animation = 'none';
+                    }
+                });
+            }, 1000);
+            
             const modal = document.getElementById('veille-modal');
             const modalBody = document.getElementById('veille-modal-body');
             const closeBtn = document.getElementById('close-veille-modal');
             const overlay = document.querySelector('.veille-modal-overlay');
-            const cards = document.querySelectorAll('.veille-card');
 
             cards.forEach(card => {
                 card.addEventListener('click', () => {

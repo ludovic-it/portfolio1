@@ -146,7 +146,7 @@
 }
 
 .veille-card {
-    background: white;
+    background: var(--card-bg, #1a1a1a);
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow);
@@ -154,9 +154,34 @@
     cursor: pointer;
     border: 2px solid transparent;
     position: relative;
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 1;
+    transform: translateY(0);
     animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Fallback pour navigateurs sans support d'animations ou si prefers-reduced-motion */
+@supports not (animation: fadeInUp 0.6s ease forwards) {
+    .veille-card {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        animation: none !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .veille-card {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        animation: none !important;
+    }
+}
+
+/* Fallback via classe JavaScript */
+.no-css-animations .veille-card,
+html.no-css-animations .veille-card {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    animation: none !important;
 }
 
 .veille-card:nth-child(1) {
@@ -229,7 +254,7 @@
 /* Border animé progressif */
 .veille-card {
     border: 2px solid transparent;
-    background-image: linear-gradient(white, white),
+    background-image: linear-gradient(var(--card-bg, #1a1a1a), var(--card-bg, #1a1a1a)),
                       linear-gradient(135deg, rgba(74, 127, 255, 0.8), rgba(107, 154, 255, 0.8));
     background-origin: border-box;
     background-clip: padding-box, border-box;
@@ -441,7 +466,7 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(26, 26, 26, 0.98);
     padding: 8px 16px;
     border-radius: 20px;
     display: flex;
@@ -451,14 +476,14 @@
     font-weight: 600;
     color: var(--primary-color);
     z-index: 3;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
 /* Fallback pour navigateurs sans support backdrop-filter */
 @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
     .veille-card-badge {
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(26, 26, 26, 0.95);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
     }
@@ -521,7 +546,7 @@
     width: 100%;
     max-width: 900px;
     max-height: 90vh;
-    background: white;
+    background: var(--card-bg, #1a1a1a);
     border-radius: var(--border-radius);
     padding: 0;
     overflow-y: auto;
@@ -558,7 +583,7 @@
 }
 
 .veille-modal-close:hover {
-    background: white;
+    background: rgba(255, 255, 255, 0.2);
     transform: rotate(90deg);
 }
 

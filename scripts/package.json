@@ -1,0 +1,11 @@
+{
+  "name": "portfolio-image-optimizer",
+  "version": "1.0.0",
+  "description": "Scripts d'optimisation pour le portfolio",
+  "scripts": {
+    "optimize-images": "node optimize-images.js"
+  },
+  "dependencies": {
+    "sharp": "^0.33.0"
+  }
+}

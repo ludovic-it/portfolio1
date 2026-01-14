@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>404 - Page Non Trouvée | Portfolio Ludovic.C</title>
+    <meta name="description" content="La page que vous recherchez n'existe pas ou a été déplacée.">
+    <meta name="robots" content="noindex, follow">
+    
+    <link rel="stylesheet" href="assets/css/css_index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        body {
+            background: var(--background-color, #0d0d0d);
+            color: var(--text-primary, #ffffff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .error-container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #4A7FFF, #6B9AFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+            line-height: 1;
+        }
+        
+        .error-title {
+            font-size: 2rem;
+            margin: 1rem 0;
+            color: var(--text-primary, #ffffff);
+        }
+        
+        .error-message {
+            font-size: 1.125rem;
+            color: var(--text-light, rgba(255, 255, 255, 0.7));
+            margin: 1rem 0 2rem;
+            line-height: 1.6;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 12px 24px;
+            background: var(--primary-color, #4A7FFF);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-home:hover {
+            background: var(--primary-dark, #3A6FEF);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(74, 127, 255, 0.3);
+        }
+        
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 12px 24px;
+            background: transparent;
+            color: var(--text-primary, #ffffff);
+            text-decoration: none;
+            border: 2px solid var(--border-color, rgba(255, 255, 255, 0.1));
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-back:hover {
+            border-color: var(--primary-color, #4A7FFF);
+            color: var(--primary-color, #4A7FFF);
+        }
+        
+        .error-icon {
+            font-size: 4rem;
+            color: var(--primary-color, #4A7FFF);
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .quick-links {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+        }
+        
+        .quick-links h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary, #ffffff);
+        }
+        
+        .quick-links ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .quick-links a {
+            color: var(--primary-color, #4A7FFF);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .quick-links a:hover {
+            color: var(--primary-light, #6B9AFF);
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 5rem;
+            }
+            
+            .error-title {
+                font-size: 1.5rem;
+            }
+            
+            .error-actions {
+                flex-direction: column;
+            }
+            
+            .btn-home,
+            .btn-back {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="error-container">
+        <div class="error-icon">
+            <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <h1 class="error-code">404</h1>
+        <h2 class="error-title">Page Non Trouvée</h2>
+        <p class="error-message">
+            Désolé, la page que vous recherchez n'existe pas ou a été déplacée.<br>
+            Elle a peut-être été supprimée ou l'URL est incorrecte.
+        </p>
+        
+        <div class="error-actions">
+            <a href="index.html" class="btn-home">
+                <i class="fas fa-home"></i>
+                Retour à l'accueil
+            </a>
+            <a href="javascript:history.back()" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                Page précédente
+            </a>
+        </div>
+        
+        <div class="quick-links">
+            <h3>Pages populaires :</h3>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="projets.html">Projets</a></li>
+                <li><a href="competences.html">Compétences</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Tracking de l'erreur 404
+        if (window.analytics) {
+            window.analytics.trackEvent('Erreur', '404', window.location.pathname);
+        }
+    </script>
+</body>
+
+</html>
