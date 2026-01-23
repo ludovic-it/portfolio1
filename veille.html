@@ -53,6 +53,9 @@
     <link rel="stylesheet" href="assets/css/design-system.css">
     <link rel="stylesheet" href="assets/css/footer-enhanced.css">
     <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+    <link rel="stylesheet" href="assets/css/multilingual.css">
+    <link rel="stylesheet" href="assets/css/search.css">
+    <link rel="stylesheet" href="assets/css/scroll-progress.css">
 
     <!-- Scripts de compatibilité (chargés tôt) -->
     <script src="assets/js/browser-compat.js"></script>
@@ -66,69 +69,169 @@
         <div class="container nav-inner">
             <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
             <div class="nav-menu">
-                <a href="index.html" class="nav-link">Profil</a>
-                <a href="projets.html" class="nav-link">Projets</a>
-                <a href="parcours.html" class="nav-link">Parcours</a>
-                <a href="veille.html" class="nav-link active">Veille</a>
-                <a href="contact.html" class="nav-contact">Contact</a>
+                <a href="index.html" class="nav-link" data-i18n="nav.profil">Profil</a>
+                <a href="projets.html" class="nav-link" data-i18n="nav.projets">Projets</a>
+                <a href="parcours.html" class="nav-link" data-i18n="nav.parcours">Parcours</a>
+                <a href="veille.html" class="nav-link active" data-i18n="nav.veille">Veille</a>
+                <a href="contact.html" class="nav-contact" data-i18n="nav.contact">Contact</a>
             </div>
         </div>
     </nav>
+
+    <!-- Particules animées en arrière-plan -->
+    <canvas id="veille-particles" class="veille-particles-canvas"></canvas>
+
+    <!-- Indicateur de progression de scroll -->
+    <div class="scroll-progress-indicator">
+        <div class="scroll-progress-bar"></div>
+    </div>
 
     <main>
         <section class="veille-section">
             <div class="container">
                 <div class="veille-header reveal" data-reveal="scale">
-                    <h2 class="section-title">Veille Technologique</h2>
-                    <p class="veille-intro">
-                        Je mène une veille active sur les technologies émergentes et les tendances du secteur IT. 
-                        Découvrez les sujets que je suis avec attention et les outils que j'explore pour rester à la pointe de l'innovation.
-                    </p>
+                    <div class="veille-header-content">
+                        <div class="veille-title-wrapper">
+                            <h2 class="section-title gradient-text" data-i18n="veille.title">Veille Technologique</h2>
+                            <div class="veille-title-decoration">
+                                <span class="decoration-line"></span>
+                                <i class="fas fa-lightbulb decoration-icon"></i>
+                                <span class="decoration-line"></span>
+                            </div>
+                        </div>
+                        <p class="veille-intro">
+                            Je mène une veille active sur les technologies émergentes et les tendances du secteur IT. 
+                            Découvrez les sujets que je suis avec attention et les outils que j'explore pour rester à la pointe de l'innovation.
+                        </p>
+                        <div class="veille-header-stats-mini">
+                            <div class="mini-stat">
+                                <i class="fas fa-fire"></i>
+                                <span>Mise à jour active</span>
+                            </div>
+                            <div class="mini-stat">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Tendances IT</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="veille-grid">
-                    <article class="veille-card reveal" data-veille="avions-chasse">
+                <!-- Contrôles de vue -->
+                <div class="veille-controls reveal" data-reveal="fade">
+                    <div class="view-controls">
+                        <span class="view-label">Affichage :</span>
+                        <div class="view-buttons-wrapper">
+                            <button class="view-btn active" data-view="grid" aria-label="Vue en grille" title="Vue en grille">
+                                <i class="fas fa-th" aria-hidden="true"></i>
+                                <span>Grille</span>
+                            </button>
+                            <button class="view-btn" data-view="list" aria-label="Vue en liste" title="Vue en liste">
+                                <i class="fas fa-list" aria-hidden="true"></i>
+                                <span>Liste</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="veille-grid" id="veille-grid" role="region" aria-label="Articles de veille technologique">
+                    <article class="veille-card reveal" data-veille="avions-chasse" data-category="defense" data-tags="défense,systèmes embarqués,rafale,avionique" data-date="2025-01-15" data-reading-time="5" role="article" aria-labelledby="veille-avions-title">
                         <div class="veille-image">
                             <img src="assets/images/cockpit.jpg" loading="lazy" alt="Avion de chasse français">
                             <div class="veille-card-badge">
                                 <i class="fas fa-fighter-jet"></i>
-                                <span>Défense</span>
+                                <span data-i18n="veille.avions.badge">Défense</span>
+                            </div>
+                            <div class="veille-new-badge">
+                                <i class="fas fa-sparkles"></i>
+                                <span>Récent</span>
+                            </div>
+                            <div class="veille-hover-overlay">
+                                <div class="veille-preview">
+                                    <p>Découvrez les systèmes informatiques embarqués du Rafale et les technologies de demain dans l'aviation militaire française.</p>
+                                    <button class="veille-read-more">
+                                        <span>Lire l'article</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div class="veille-content">
                             <div class="veille-meta">
-                                <span class="veille-date"><i class="far fa-calendar"></i> Mise à jour récente</span>
-                                <span class="veille-reading-time"><i class="far fa-clock"></i> 5 min de lecture</span>
+                                <span class="veille-date"><i class="far fa-calendar"></i> <span data-i18n="veille.meta.recent">Mise à jour récente</span></span>
+                                <span class="veille-reading-time"><i class="far fa-clock"></i> 5 <span data-i18n="veille.meta.readingTime">min de lecture</span></span>
                             </div>
-                            <h3>Informatique dans les avions de chasse français <i class="fas fa-arrow-right veille-arrow"></i></h3>
-                            <p>L'évolution des systèmes informatiques embarqués dans les avions de combat modernes de l'armée française, notamment le Rafale et les technologies de demain.</p>
+                            <h3 id="veille-avions-title"><span data-i18n="veille.avions.title">Informatique dans les avions de chasse français</span> <i class="fas fa-arrow-right veille-arrow" aria-hidden="true"></i></h3>
+                            <p data-i18n="veille.avions.description">L'évolution des systèmes informatiques embarqués dans les avions de combat modernes de l'armée française, notamment le Rafale et les technologies de demain.</p>
                             <div class="veille-sources">
-                                <span class="source-tag"><i class="fas fa-shield-alt"></i> Défense</span>
-                                <span class="source-tag"><i class="fas fa-microchip"></i> Systèmes embarqués</span>
-                                <span class="source-tag"><i class="fas fa-plane"></i> Rafale</span>
+                                <button class="source-tag clickable-tag" data-tag="défense" title="Filtrer par : Défense">
+                                    <i class="fas fa-shield-alt"></i> 
+                                    <span data-i18n="veille.avions.tag1">Défense</span>
+                                </button>
+                                <button class="source-tag clickable-tag" data-tag="systèmes embarqués" title="Filtrer par : Systèmes embarqués">
+                                    <i class="fas fa-microchip"></i> 
+                                    <span data-i18n="veille.avions.tag2">Systèmes embarqués</span>
+                                </button>
+                                <button class="source-tag clickable-tag" data-tag="rafale" title="Filtrer par : Rafale">
+                                    <i class="fas fa-plane"></i> 
+                                    <span data-i18n="veille.avions.tag3">Rafale</span>
+                                </button>
+                            </div>
+                            <div class="veille-actions">
+                                <button class="veille-action-btn" data-action="share" aria-label="Partager cet article" title="Partager">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                                <button class="veille-action-btn" data-action="bookmark" aria-label="Ajouter aux favoris" title="Favoris">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
                             </div>
                         </div>
                     </article>
 
-                    <article class="veille-card reveal" data-veille="automatisation" style="animation-delay: 0.1s;">
+                    <article class="veille-card reveal" data-veille="automatisation" data-category="automatisation" data-tags="n8n,no-code,workflow,automatisation,zapier,make" data-date="2024-12-18" data-reading-time="6" role="article" aria-labelledby="veille-automatisation-title" style="animation-delay: 0.1s;">
                         <div class="veille-image" >
                             <img src="assets/images/pc.jpg" alt="Automatisation avec n8n">
                             <div class="veille-card-badge" >
                                 <i class="fas fa-robot" ></i>
-                                <span>Automatisation</span>
+                                <span data-i18n="veille.automatisation.badge">Automatisation</span>
+                            </div>
+                            <div class="veille-hover-overlay">
+                                <div class="veille-preview">
+                                    <p>Explorez les plateformes d'automatisation no-code comme n8n, Zapier et Make pour créer des workflows sans programmation.</p>
+                                    <button class="veille-read-more">
+                                        <span>Lire l'article</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div class="veille-content">
                             <div class="veille-meta">
-                                <span class="veille-date"><i class="far fa-calendar"></i> Mise à jour récente</span>
-                                <span class="veille-reading-time"><i class="far fa-clock"></i> 6 min de lecture</span>
+                                <span class="veille-date"><i class="far fa-calendar"></i> <span data-i18n="veille.meta.recent">Mise à jour récente</span></span>
+                                <span class="veille-reading-time"><i class="far fa-clock"></i> 6 <span data-i18n="veille.meta.readingTime">min de lecture</span></span>
                             </div>
-                            <h3>Automatisation avec n8n et outils no-code <i class="fas fa-arrow-right veille-arrow"></i></h3>
-                            <p>L'essor des plateformes d'automatisation no-code/low-code comme n8n, Zapier et Make pour créer des workflows automatisés sans programmation.</p>
+                            <h3 id="veille-automatisation-title"><span data-i18n="veille.automatisation.title">Automatisation avec n8n et outils no-code</span> <i class="fas fa-arrow-right veille-arrow" aria-hidden="true"></i></h3>
+                            <p data-i18n="veille.automatisation.description">L'essor des plateformes d'automatisation no-code/low-code comme n8n, Zapier et Make pour créer des workflows automatisés sans programmation.</p>
                             <div class="veille-sources">
-                                <span class="source-tag"><i class="fab fa-node-js"></i> n8n</span>
-                                <span class="source-tag"><i class="fas fa-code"></i> No-Code</span>
-                                <span class="source-tag"><i class="fas fa-project-diagram"></i> Workflow</span>
+                                <button class="source-tag clickable-tag" data-tag="n8n" title="Filtrer par : n8n">
+                                    <i class="fab fa-node-js"></i> 
+                                    <span data-i18n="veille.automatisation.tag1">n8n</span>
+                                </button>
+                                <button class="source-tag clickable-tag" data-tag="no-code" title="Filtrer par : No-Code">
+                                    <i class="fas fa-code"></i> 
+                                    <span data-i18n="veille.automatisation.tag2">No-Code</span>
+                                </button>
+                                <button class="source-tag clickable-tag" data-tag="workflow" title="Filtrer par : Workflow">
+                                    <i class="fas fa-project-diagram"></i> 
+                                    <span data-i18n="veille.automatisation.tag3">Workflow</span>
+                                </button>
+                            </div>
+                            <div class="veille-actions">
+                                <button class="veille-action-btn" data-action="share" aria-label="Partager cet article" title="Partager">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                                <button class="veille-action-btn" data-action="bookmark" aria-label="Ajouter aux favoris" title="Favoris">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
                             </div>
                         </div>
                     </article>
@@ -137,18 +240,18 @@
                 <div class="veille-stats reveal" data-reveal="scale">
                     <div class="stat-item">
                         <div class="stat-icon"><i class="fas fa-book-open"></i></div>
-                        <div class="stat-number">2</div>
-                        <div class="stat-label">Sujets suivis</div>
+                        <div class="stat-number" data-counter data-target="2" data-duration="1500">0</div>
+                        <div class="stat-label" data-i18n="veille.stats.subjects">Sujets suivis</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-icon"><i class="fas fa-link"></i></div>
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">Sources consultées</div>
+                        <div class="stat-number" data-counter data-target="15" data-duration="2000" data-suffix="+">0</div>
+                        <div class="stat-label" data-i18n="veille.stats.sources">Sources consultées</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-icon"><i class="fas fa-sync-alt"></i></div>
-                        <div class="stat-number">Mise à jour</div>
-                        <div class="stat-label">Régulière</div>
+                        <div class="stat-number" data-i18n="veille.stats.update">Mise à jour</div>
+                        <div class="stat-label" data-i18n="veille.stats.regular">Régulière</div>
                     </div>
                 </div>
             </div>
@@ -167,7 +270,7 @@
     <!-- Scroll to Top Button - Footer -->
     <section class="scroll-to-top-footer">
         <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
-            <span>Retour en haut</span>
+            <span data-i18n="footer.backToTop">Retour en haut</span>
             <i class="fas fa-arrow-up"></i>
         </button>
     </section>
@@ -175,14 +278,14 @@
     <footer class="main-footer">
         <div class="footer-container">
             <div class="footer-left">
-                <p class="copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
-                <p class="credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p>
                 <div class="footer-links">
-                    <a href="privacy.html" class="privacy-link">Politique de confidentialité</a>
+                    <a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de confidentialité</a>
                     <span class="footer-separator">|</span>
-                    <a href="cookies.html" class="privacy-link">Politique des cookies</a>
+                    <a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a>
                     <span class="footer-separator">|</span>
-                    <a href="legal.html" class="privacy-link">Mentions légales</a>
+                    <a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a>
                 </div>
             </div>
 
@@ -204,9 +307,12 @@
 
     <!-- Nouveaux scripts -->
     <script src="assets/js/toast.js"></script>
+    <script src="assets/js/multilingual.js"></script>
     <script src="assets/js/scroll-reveal.js"></script>
     <script src="assets/js/accessibility.js"></script>
     <script src="assets/js/lazy-load.js"></script>
+    <script src="assets/js/stats-counter.js"></script>
+    <script src="assets/js/scroll-progress.js"></script>
 
     <script>
         // Articles de veille
@@ -345,7 +451,317 @@
                     navMenu.classList.toggle('active');
                 });
             }
+
+            // Système de vue
+            const veilleCards = document.querySelectorAll('.veille-card');
+            const veilleGrid = document.getElementById('veille-grid');
+            const viewButtons = document.querySelectorAll('.view-btn');
+            let currentView = 'grid';
+
+
+            // Système de vue (grille/liste)
+            viewButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    viewButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentView = btn.getAttribute('data-view');
+                    
+                    // Animation de transition fluide
+                    veilleGrid.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                    veilleGrid.style.opacity = '0.6';
+                    veilleGrid.style.transform = 'scale(0.98)';
+                    
+                    setTimeout(() => {
+                        veilleGrid.classList.toggle('list-view', currentView === 'list');
+                        veilleGrid.style.opacity = '1';
+                        veilleGrid.style.transform = 'scale(1)';
+                        
+                        // Réanimer les cartes
+                        veilleCards.forEach((card, index) => {
+                            card.style.animationDelay = `${index * 0.1}s`;
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            
+                            setTimeout(() => {
+                                card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 50);
+                        });
+                    }, 250);
+                });
+            });
+
+
+            // Actions (partage, favoris)
+            const actionButtons = document.querySelectorAll('.veille-action-btn');
+            actionButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const action = btn.getAttribute('data-action');
+                    const card = btn.closest('.veille-card');
+                    const veilleId = card.getAttribute('data-veille');
+                    
+                    if (action === 'share') {
+                        shareArticle(veilleId, card);
+                    } else if (action === 'bookmark') {
+                        toggleBookmark(btn, veilleId);
+                    }
+                });
+            });
+
+            function shareArticle(veilleId, card) {
+                const title = card.querySelector('h3')?.textContent || '';
+                const url = window.location.href;
+                
+                if (navigator.share) {
+                    navigator.share({
+                        title: title,
+                        text: 'Découvrez cet article de veille technologique',
+                        url: url
+                    }).catch(err => console.log('Erreur de partage:', err));
+                } else {
+                    // Fallback : copier le lien
+                    navigator.clipboard.writeText(url).then(() => {
+                        showToast('Lien copié dans le presse-papiers !');
+                    });
+                }
+            }
+
+            function toggleBookmark(btn, veilleId) {
+                const icon = btn.querySelector('i');
+                const isBookmarked = icon.classList.contains('fas');
+                
+                if (isBookmarked) {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    btn.setAttribute('aria-label', 'Ajouter aux favoris');
+                    showToast('Retiré des favoris');
+                } else {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    btn.setAttribute('aria-label', 'Retirer des favoris');
+                    showToast('Ajouté aux favoris');
+                }
+            }
+
+            function showToast(message) {
+                // Utiliser le système de toast existant si disponible
+                if (window.showToast) {
+                    window.showToast(message);
+                } else {
+                    console.log(message);
+                }
+            }
+
+            // Effet magnétique amélioré sur les cartes
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                veilleCards.forEach(card => {
+                    let isHovering = false;
+                    
+                    card.addEventListener('mouseenter', () => {
+                        isHovering = true;
+                    });
+                    
+                    card.addEventListener('mousemove', (e) => {
+                        if (!isHovering) return;
+                        
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        const moveX = (x - centerX) / 25;
+                        const moveY = (y - centerY) / 25;
+                        
+                        // Ajouter une rotation subtile
+                        const rotateY = moveX * 0.5;
+                        const rotateX = -moveY * 0.5;
+                        
+                        card.style.setProperty('--magnetic-x', `${moveX}px`);
+                        card.style.setProperty('--magnetic-y', `${moveY}px`);
+                        card.style.setProperty('--rotate-y', `${rotateY}deg`);
+                        card.style.setProperty('--rotate-x', `${rotateX}deg`);
+                    });
+                    
+                    card.addEventListener('mouseleave', () => {
+                        isHovering = false;
+                        card.style.setProperty('--magnetic-x', '0px');
+                        card.style.setProperty('--magnetic-y', '0px');
+                        card.style.setProperty('--rotate-y', '0deg');
+                        card.style.setProperty('--rotate-x', '0deg');
+                    });
+                });
+            }
+
+            // Parallaxe subtile sur les cartes (seulement si pas de préférence reduced-motion)
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                let ticking = false;
+                function updateParallax() {
+                    if (ticking) return;
+                    ticking = true;
+                    requestAnimationFrame(() => {
+                        veilleCards.forEach((card) => {
+                            const rect = card.getBoundingClientRect();
+                            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                            if (isVisible && card.style.display !== 'none') {
+                                const offset = (rect.top - window.innerHeight / 2) * 0.03;
+                                card.style.setProperty('--parallax-offset', `${offset}px`);
+                            }
+                        });
+                        ticking = false;
+                    });
+                }
+                window.addEventListener('scroll', updateParallax, { passive: true });
+                updateParallax(); // Initial call
+            }
+
+            // Animation de particules en arrière-plan
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                initParticles();
+            }
+
+            // Indicateur de progression de scroll
+            const progressBar = document.querySelector('.scroll-progress-bar');
+            if (progressBar) {
+                function updateScrollProgress() {
+                    const windowHeight = window.innerHeight;
+                    const documentHeight = document.documentElement.scrollHeight;
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+                    progressBar.style.width = `${Math.min(scrollPercent, 100)}%`;
+                }
+                
+                window.addEventListener('scroll', updateScrollProgress, { passive: true });
+                updateScrollProgress();
+            }
+
+            // Animation de révélation progressive des cartes au scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                            entry.target.classList.add('revealed');
+                        }, index * 100);
+                        cardObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            veilleCards.forEach(card => {
+                cardObserver.observe(card);
+            });
+
+            // Effet de parallaxe amélioré pour les images
+            function updateImageParallax() {
+                veilleCards.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    const image = card.querySelector('.veille-image img');
+                    if (image && rect.top < window.innerHeight && rect.bottom > 0) {
+                        const scrolled = window.pageYOffset;
+                        const rate = scrolled * 0.1;
+                        image.style.transform = `translateY(${rate * 0.3}px) scale(1.05)`;
+                    }
+                });
+            }
+
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                window.addEventListener('scroll', updateImageParallax, { passive: true });
+            }
         });
+
+        function initParticles() {
+            const canvas = document.getElementById('veille-particles');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            const particles = [];
+            const particleCount = 50;
+            let animationId = null;
+            
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+            
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 1;
+                    this.speedX = (Math.random() - 0.5) * 0.5;
+                    this.speedY = (Math.random() - 0.5) * 0.5;
+                    this.opacity = Math.random() * 0.5 + 0.2;
+                }
+                
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    
+                    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+                }
+                
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(74, 127, 255, ${this.opacity})`;
+                    ctx.fill();
+                }
+            }
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+            
+            function animate() {
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    if (animationId) {
+                        cancelAnimationFrame(animationId);
+                    }
+                    return;
+                }
+                
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+                
+                // Connecter les particules proches
+                particles.forEach((p1, i) => {
+                    particles.slice(i + 1).forEach(p2 => {
+                        const dx = p1.x - p2.x;
+                        const dy = p1.y - p2.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 120) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(74, 127, 255, ${0.1 * (1 - distance / 120)})`;
+                            ctx.lineWidth = 1;
+                            ctx.moveTo(p1.x, p1.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.stroke();
+                        }
+                    });
+                });
+                
+                animationId = requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
     </script>
     <script src="assets/js/scroll-to-top-footer.js"></script>
 </body>

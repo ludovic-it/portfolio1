@@ -42,6 +42,7 @@
     <link rel="stylesheet" href="assets/css/css_project-detail.css">
     <link rel="stylesheet" href="assets/css/footer-enhanced.css">
     <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+    <link rel="stylesheet" href="assets/css/multilingual.css">
 </head>
 
 <body>
@@ -563,24 +564,26 @@
     </main>
 
     <!-- Scroll to Top Button - Footer -->
+    <!-- Scroll to Top Button - Footer -->
     <section class="scroll-to-top-footer">
         <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
-            <span>Retour en haut</span>
+            <span data-i18n="footer.backToTop">Retour en haut</span>
             <i class="fas fa-arrow-up"></i>
         </button>
     </section>
 
+    <!-- NOUVEAU FOOTER -->
     <footer class="main-footer">
         <div class="footer-container">
             <div class="footer-left">
-                <p class="copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
-                <p class="credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p>
                 <div class="footer-links">
-                    <a href="privacy.html" class="privacy-link">Politique de confidentialité</a>
+                    <a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de confidentialité</a>
                     <span class="footer-separator">|</span>
-                    <a href="cookies.html" class="privacy-link">Politique des cookies</a>
+                    <a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a>
                     <span class="footer-separator">|</span>
-                    <a href="legal.html" class="privacy-link">Mentions légales</a>
+                    <a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a>
                 </div>
             </div>
 
@@ -599,6 +602,7 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/multilingual.js"></script>
     <script src="assets/js/toc-island.js"></script>
     <script src="assets/js/code-highlight.js"></script>
     <script src="assets/js/typing-effect.js"></script>

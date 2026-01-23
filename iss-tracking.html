@@ -42,6 +42,7 @@
     <link rel="stylesheet" href="assets/css/css_project-detail.css">
     <link rel="stylesheet" href="assets/css/footer-enhanced.css">
     <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+    <link rel="stylesheet" href="assets/css/multilingual.css">
 </head>
 
 <body>
@@ -475,16 +476,17 @@ setInterval(GetISS, 1000);</code></pre>
                             <span class="tech-small">WPF</span>
                         </div>
                     </a>
-                    <a href="csv-visualisation.html" class="project-card">
+                    <a href="Application-mobile-coach.html" class="project-card">
                         <div class="project-card-image">
-                            <img src="assets/images/CSV/CSV.png" alt="Visualisation CSV" loading="lazy">
+                            <img src="assets/images/coach/coach-hero.png" alt="Application mobile Coach" loading="lazy"
+                                onerror="this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop'">
                         </div>
-                        <h3>Visualisation CSV</h3>
-                        <p>Visualisation de données CSV avec JavaScript et Chart.js</p>
+                        <h3>Coach</h3>
+                        <p>Application mobile multiplateforme pour calculer l'Indice de Masse Grasse (IMG)</p>
                         <div class="project-technologies">
-                            <span class="tech-small">JavaScript</span>
-                            <span class="tech-small">Chart.js</span>
-                            <span class="tech-small">Fetch API</span>
+                            <span class="tech-small">.NET MAUI</span>
+                            <span class="tech-small">C#</span>
+                            <span class="tech-small">XAML</span>
                         </div>
                     </a>
                 </div>
@@ -493,24 +495,26 @@ setInterval(GetISS, 1000);</code></pre>
     </main>
 
     <!-- Scroll to Top Button - Footer -->
+    <!-- Scroll to Top Button - Footer -->
     <section class="scroll-to-top-footer">
         <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
-            <span>Retour en haut</span>
+            <span data-i18n="footer.backToTop">Retour en haut</span>
             <i class="fas fa-arrow-up"></i>
         </button>
     </section>
 
+    <!-- NOUVEAU FOOTER -->
     <footer class="main-footer">
         <div class="footer-container">
             <div class="footer-left">
-                <p class="copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
-                <p class="credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p>
                 <div class="footer-links">
-                    <a href="privacy.html" class="privacy-link">Politique de confidentialité</a>
+                    <a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de confidentialité</a>
                     <span class="footer-separator">|</span>
-                    <a href="cookies.html" class="privacy-link">Politique des cookies</a>
+                    <a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a>
                     <span class="footer-separator">|</span>
-                    <a href="legal.html" class="privacy-link">Mentions légales</a>
+                    <a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a>
                 </div>
             </div>
 
@@ -529,6 +533,7 @@ setInterval(GetISS, 1000);</code></pre>
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/multilingual.js"></script>
     <script src="assets/js/toc-island.js"></script>
     <script src="assets/js/code-highlight.js"></script>
     <script src="assets/js/typing-effect.js"></script>

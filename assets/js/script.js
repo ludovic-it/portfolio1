@@ -1,3 +1,110 @@
+// #region agent log - Debug instrumentation for tech-tag overflow
+(function debugTechTagOverflow() {
+    const SERVER_ENDPOINT = 'http://127.0.0.1:7248/ingest/b48ec1ae-3675-442f-a25f-5796272ccf44';
+    function log(hypothesisId, location, message, data) {
+        fetch(SERVER_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                location,
+                message,
+                data,
+                timestamp: Date.now(),
+                sessionId: 'debug-session',
+                runId: 'run1',
+                hypothesisId
+            })
+        }).catch(() => {});
+    }
+    
+    function measureElement(el, prefix) {
+        if (!el) return null;
+        const rect = el.getBoundingClientRect();
+        const computed = window.getComputedStyle(el);
+        return {
+            width: rect.width,
+            height: rect.height,
+            left: rect.left,
+            top: rect.top,
+            right: rect.right,
+            bottom: rect.bottom,
+            overflow: computed.overflow,
+            overflowX: computed.overflowX,
+            overflowY: computed.overflowY,
+            transform: computed.transform,
+            scale: computed.transform.includes('scale') ? computed.transform : 'none',
+            padding: computed.padding,
+            margin: computed.margin
+        };
+    }
+    
+    function initTechTagDebug() {
+        setTimeout(() => {
+            const techTags = document.querySelectorAll('.tech-tag');
+            if (techTags.length === 0) {
+                log('INIT', 'script.js:debugTechTagOverflow', 'No tech-tag elements found', {});
+                return;
+            }
+            
+            techTags.forEach((tag, index) => {
+                tag.addEventListener('mouseenter', function() {
+                    const tagData = measureElement(this, 'tag');
+                    const tagsContainer = this.closest('.bts-tech-tags');
+                    const categoryContainer = this.closest('.bts-tech-category');
+                    const gridContainer = this.closest('.bts-tech-grid');
+                    
+                    log('A', `script.js:tech-tag-${index}:mouseenter`, 'Tag hover - scale hypothesis', {
+                        tagIndex: index,
+                        tagBefore: measureElement(this, 'tag'),
+                        tagsContainer: measureElement(tagsContainer, 'tags'),
+                        categoryContainer: measureElement(categoryContainer, 'category'),
+                        gridContainer: measureElement(gridContainer, 'grid'),
+                        tagWidth: this.offsetWidth,
+                        tagHeight: this.offsetHeight,
+                        tagScrollWidth: this.scrollWidth,
+                        tagScrollHeight: this.scrollHeight
+                    });
+                    
+                    setTimeout(() => {
+                        const tagAfter = measureElement(this, 'tag');
+                        const computed = window.getComputedStyle(this);
+                        log('A', `script.js:tech-tag-${index}:hover-state`, 'Tag hover state - after transform', {
+                            tagIndex: index,
+                            tagAfter,
+                            transform: computed.transform,
+                            boxShadow: computed.boxShadow,
+                            zIndex: computed.zIndex,
+                            actualWidth: this.getBoundingClientRect().width,
+                            actualHeight: this.getBoundingClientRect().height,
+                            containerWidth: tagsContainer?.offsetWidth,
+                            containerHeight: tagsContainer?.offsetHeight,
+                            overflowsRight: this.getBoundingClientRect().right > (tagsContainer?.getBoundingClientRect().right || 0),
+                            overflowsBottom: this.getBoundingClientRect().bottom > (tagsContainer?.getBoundingClientRect().bottom || 0)
+                        });
+                    }, 100);
+                });
+                
+                tag.addEventListener('mouseleave', function() {
+                    log('A', `script.js:tech-tag-${index}:mouseleave`, 'Tag hover end', {
+                        tagIndex: index
+                    });
+                });
+            });
+            
+            log('INIT', 'script.js:debugTechTagOverflow', 'Tech tag debug initialized', {
+                tagCount: techTags.length
+            });
+        }, 1000);
+    }
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTechTagDebug);
+    } else {
+        initTechTagDebug();
+    }
+})();
+// #endregion
+
 // Particle Animation for Hero Section
 (function() {
     'use strict';

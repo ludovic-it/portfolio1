@@ -1,4 +1,4 @@
-/* Multilingual Switcher Styles */
+﻿/* Multilingual Switcher Styles */
 .language-switcher {
     display: flex;
     gap: 8px;
@@ -59,3 +59,43 @@
     }
 }
 
+/* Footer Language Switcher */
+.footer-language-switcher {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+}
+
+.footer-language-switcher .lang-option {
+    color: #ffffff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    user-select: none;
+    font-weight: 400;
+}
+
+.footer-language-switcher .lang-option:hover {
+    color: #ffffff;
+}
+
+.footer-language-switcher .lang-option.active {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.footer-language-switcher .lang-separator {
+    color: #ffffff;
+    user-select: none;
+    margin: 0 2px;
+}
+
+/* Responsive pour le footer */
+@media (max-width: 768px) {
+    .footer-language-switcher {
+        font-size: 0.8rem;
+        gap: 6px;
+    }
+}

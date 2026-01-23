@@ -57,6 +57,7 @@
     <link rel="stylesheet" href="assets/css/design-system.css">
     <link rel="stylesheet" href="assets/css/footer-enhanced.css">
     <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+    <link rel="stylesheet" href="assets/css/multilingual.css">
 </head>
 
 <body>
@@ -66,38 +67,62 @@
         <div class="container nav-inner">
             <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
             <div class="nav-menu">
-                <a href="index.html" class="nav-link">Profil</a>
-                <a href="projets.html" class="nav-link">Projets</a>
-                <a href="parcours.html" class="nav-link">Parcours</a>
-                <a href="veille.html" class="nav-link">Veille</a>
-                <a href="contact.html" class="nav-contact">Contact</a>
+                <a href="index.html" class="nav-link" data-i18n="nav.profil">Profil</a>
+                <a href="projets.html" class="nav-link" data-i18n="nav.projets">Projets</a>
+                <a href="parcours.html" class="nav-link" data-i18n="nav.parcours">Parcours</a>
+                <a href="veille.html" class="nav-link" data-i18n="nav.veille">Veille</a>
+                <a href="contact.html" class="nav-contact" data-i18n="nav.contact">Contact</a>
             </div>
         </div>
     </nav>
 
     <main class="contact-main">
+        <!-- Éléments décoratifs flottants pour l'animation -->
+        <div class="floating-shapes">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+        </div>
+        <!-- Particules décoratives -->
+        <div class="particles-container">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+        </div>
+        <!-- Effet de lumière dynamique -->
+        <div class="light-effect"></div>
+        <!-- Rayons de lumière -->
+        <div class="light-rays">
+            <div class="light-ray ray-1"></div>
+            <div class="light-ray ray-2"></div>
+            <div class="light-ray ray-3"></div>
+        </div>
+        <!-- Grille décorative -->
+        <div class="grid-overlay"></div>
         <div class="contact-container">
             <div class="contact-content-wrapper">
                 <div class="contact-left">
-                    <h1 class="contact-title">Contact.</h1>
-                    <p class="contact-description">
+                    <h1 class="contact-title" data-i18n="contact.title">Contact.</h1>
+                    <p class="contact-description" data-i18n="contact.description">
                         <i class="fas fa-envelope-open-text" style="color: var(--primary-color); margin-right: 8px;"></i>
                         Je serais ravi d'avoir de vos nouvelles. Envoyez-moi un message et commençons la conversation.
                     </p>
 
                     <div class="contact-quote-card">
                         <div class="quote-icon">"</div>
-                        <p class="quote-text">
+                            <p class="quote-text" data-i18n="contact.quote">
                             <i class="fas fa-quote-left" style="color: var(--primary-color); opacity: 0.3; margin-right: 8px;"></i>
-                            De la rigueur militaire à la créativité du code, mon parcours atypique est ma plus grande force. Il me permet d’aborder le développement logiciel avec discipline, précision et esprit d’innovation.
+                            De la rigueur militaire à la créativité du code, mon parcours atypique est ma plus grande force. Il me permet d'aborder le développement logiciel avec discipline, précision et esprit d'innovation.
                         </p>
                         <div class="quote-author">
                             <div class="quote-author-info">
-                                <strong>
+                                <strong data-i18n="contact.author">
                                     <i class="fas fa-user" style="margin-right: 6px; color: var(--primary-color);"></i>
                                     Ludovic CHAMPROBERT
                                 </strong>
-                                <span>
+                                <span data-i18n="contact.role">
                                     <i class="fas fa-code" style="margin-right: 6px; color: var(--text-secondary);"></i>
                                     Développeur BTS SIO
                                 </span>
@@ -110,33 +135,33 @@
                     <div class="contact-form-card">
                         <form id="contactForm">
                             <div class="form-group">
-                                <label for="name">
+                                <label for="name" data-i18n="contact.form.name">
                                     <i class="fas fa-user"></i>
                                     Nom
                                 </label>
-                                <input type="text" id="name" name="name" required placeholder="Entrez votre nom"
+                                <input type="text" id="name" name="name" required data-i18n-placeholder="contact.form.name.placeholder" placeholder="Entrez votre nom"
                                     aria-required="true">
                             </div>
 
                             <div class="form-group">
-                                <label for="email">
+                                <label for="email" data-i18n="contact.form.email">
                                     <i class="fas fa-envelope"></i>
                                     Email
                                 </label>
-                                <input type="email" id="email" name="email" required placeholder="Entrez votre email"
+                                <input type="email" id="email" name="email" required data-i18n-placeholder="contact.form.email.placeholder" placeholder="Entrez votre email"
                                     aria-required="true">
                             </div>
 
                             <div class="form-group">
-                                <label for="message">
+                                <label for="message" data-i18n="contact.form.message">
                                     <i class="fas fa-comment-alt"></i>
                                     Message
                                 </label>
                                 <textarea id="message" name="message" rows="5" required
-                                    placeholder="Ecrivez votre message" aria-required="true"></textarea>
+                                    data-i18n-placeholder="contact.form.message.placeholder" placeholder="Ecrivez votre message" aria-required="true"></textarea>
                             </div>
 
-                            <button type="submit" class="btn-submit">
+                            <button type="submit" class="btn-submit" data-i18n="contact.form.submit">
                                 Envoyez
                                 <span class="btn-dot"></span>
                             </button>
@@ -150,7 +175,7 @@
     <!-- Scroll to Top Button - Footer -->
     <section class="scroll-to-top-footer">
         <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
-            <span>Retour en haut</span>
+            <span data-i18n="footer.backToTop">Retour en haut</span>
             <i class="fas fa-arrow-up"></i>
         </button>
     </section>
@@ -158,14 +183,14 @@
     <footer class="main-footer">
         <div class="footer-container">
             <div class="footer-left">
-                <p class="copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
-                <p class="credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p>
                 <div class="footer-links">
-                    <a href="privacy.html" class="privacy-link">Politique de confidentialité</a>
+                    <a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de confidentialité</a>
                     <span class="footer-separator">|</span>
-                    <a href="cookies.html" class="privacy-link">Politique des cookies</a>
+                    <a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a>
                     <span class="footer-separator">|</span>
-                    <a href="legal.html" class="privacy-link">Mentions légales</a>
+                    <a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a>
                 </div>
             </div>
 
@@ -187,6 +212,7 @@
 
     <!-- Nouveaux scripts -->
     <script src="assets/js/toast.js"></script>
+    <script src="assets/js/multilingual.js"></script>
     <script src="assets/js/contact-form-validation.js"></script>
     <script src="assets/js/accessibility.js"></script>
     <script src="assets/js/lazy-load.js"></script>

@@ -293,34 +293,26 @@ h6 {
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
     z-index: 100;
-    pointer-events: none;
+    pointer-events: auto;
+    cursor: default;
 }
 
 .scroll-hint-text {
     font-size: 0.875rem;
-    color: var(--text-secondary);
+    color: #999999;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-weight: 500;
+    font-weight: 400;
+    transition: letter-spacing 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.3s ease;
+    font-family: 'Inter', sans-serif;
 }
 
-.scroll-hint-icon {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    animation: scroll-hint-pulse 2s ease-in-out infinite;
-}
-
-@keyframes scroll-hint-pulse {
-    0%, 100% {
-        transform: translateX(0);
-        opacity: 0.6;
-    }
-    50% {
-        transform: translateX(8px);
-        opacity: 1;
-    }
+.scroll-hint:hover .scroll-hint-text {
+    color: #1a1a1a;
+    letter-spacing: 0.3em;
 }
 
 .projects-minimal-header {

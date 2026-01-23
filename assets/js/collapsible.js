@@ -65,7 +65,7 @@
                     toggle.className = 'collapsible-toggle';
                     toggle.type = 'button';
                     toggle.setAttribute('aria-expanded', 'false');
-                    toggle.innerHTML = '<span>Voir plus</span> <i class="fas fa-chevron-down"></i>';
+                    toggle.innerHTML = '<span data-i18n="common.seeMore">Voir plus</span> <i class="fas fa-chevron-down"></i>';
                     
                     // Ajouter l'event listener au toggle
                     toggle.addEventListener('click', function handleToggle(e) {
@@ -80,13 +80,29 @@
                             container.classList.remove('expanded');
                             toggle.classList.remove('expanded');
                             toggle.setAttribute('aria-expanded', 'false');
-                            if (span) span.textContent = 'Voir plus';
+                            if (span) {
+                                span.setAttribute('data-i18n', 'common.seeMore');
+                                // Mettre à jour via le système multilingue si disponible
+                                if (window.i18n) {
+                                    span.textContent = window.i18n.t('common.seeMore');
+                                } else {
+                                    span.textContent = 'Voir plus';
+                                }
+                            }
                         } else {
                             // Ouvrir
                             container.classList.add('expanded');
                             toggle.classList.add('expanded');
                             toggle.setAttribute('aria-expanded', 'true');
-                            if (span) span.textContent = 'Voir moins';
+                            if (span) {
+                                span.setAttribute('data-i18n', 'common.seeLess');
+                                // Mettre à jour via le système multilingue si disponible
+                                if (window.i18n) {
+                                    span.textContent = window.i18n.t('common.seeLess');
+                                } else {
+                                    span.textContent = 'Voir moins';
+                                }
+                            }
                         }
                     });
                     

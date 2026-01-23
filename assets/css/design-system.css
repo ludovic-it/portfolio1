@@ -391,6 +391,25 @@
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 32px;
+    position: relative;
+}
+
+.footer-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .footer-center {
+        position: static;
+        transform: none;
+        order: 2;
+        width: 100%;
+    }
 }
 
 .footer-left {

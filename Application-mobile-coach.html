@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- SEO Meta Tags -->
+    <title>Coach - Application Mobile de Calcul IMG | Portfolio Ludovic.C</title>
+    <meta name="description"
+        content="Application mobile multiplateforme développée avec .NET MAUI permettant de calculer l'Indice de Masse Grasse (IMG). Application de coaching fitness et santé.">
+    <meta name="keywords" content=".NET MAUI, C#, application mobile, IMG, Indice Masse Grasse, multiplateforme, XAML, MVVM, fitness, coaching">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://votre-domaine.com/csv-visualisation.html">
+    <meta property="og:title" content="Coach - Application Mobile de Calcul IMG">
+    <meta property="og:description"
+        content="Application mobile multiplateforme développée avec .NET MAUI pour calculer l'Indice de Masse Grasse (IMG).">
+    <meta property="og:image" content="https://votre-domaine.com/assets/images/coach/coach-hero.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Coach - Application Mobile de Calcul IMG">
+    <meta name="twitter:description" content="Application mobile multiplateforme développée avec .NET MAUI pour calculer l'IMG.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Fragment+Mono:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css">
+
+    <!-- Nouveaux CSS -->
+    <link rel="stylesheet" href="assets/css/scroll-reveal.css">
+    <link rel="stylesheet" href="assets/css/accessibility.css">
+    <link rel="stylesheet" href="assets/css/breadcrumbs.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link rel="stylesheet" href="assets/css/css_project-detail.css">
+    <link rel="stylesheet" href="assets/css/footer-enhanced.css">
+    <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+    <link rel="stylesheet" href="assets/css/multilingual.css">
+</head>
+
+<body>
+
+    <main>
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+            <div class="container">
+                <div class="breadcrumbs-nav">
+                    <a href="index.html">Accueil</a>
+                    <span class="separator">/</span>
+                    <a href="projets.html">Projets</a>
+                    <span class="separator">/</span>
+                    <span class="current">Coach</span>
+                </div>
+            </div>
+        </nav>
+
+        <section class="project-detail">
+            <div class="container">
+                <div class="project-header">
+                    <a href="projets.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour aux projets</a>
+                    <h1>Coach</h1>
+                    <p class="project-subtitle">Application mobile multiplateforme développée avec .NET MAUI permettant de calculer l'Indice de Masse Grasse (IMG)</p>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="project-hero-image">
+                    <img src="assets/images/coach/coach-hero.png"
+                        alt="Application mobile Coach - Calcul IMG" class="hero-img" loading="lazy"
+                        onerror="this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=600&fit=crop'">
+                </div>
+
+                <div class="project-content-wrapper">
+                    <div class="project-main">
+                        <!-- Présentation du projet -->
+                        <section class="detail-section">
+                            <h2>Présentation du projet</h2>
+                            <p>
+                                Dans le cadre de ma formation en BTS SIO option SLAM, j'ai développé une application mobile
+                                multiplateforme <strong>Coach</strong> permettant de calculer l'Indice de Masse Grasse (IMG)
+                                d'un utilisateur en fonction de son poids, sa taille, son âge et son sexe. L'objectif était
+                                de créer une application de coaching fitness et santé accessible sur toutes les plateformes
+                                mobiles et desktop.
+                            </p>
+                            <p>
+                                L'application utilise <strong>.NET MAUI</strong> (Multi-platform App UI) version 10.0 pour
+                                garantir une expérience utilisateur cohérente sur Android, iOS, macOS et Windows. Elle permet
+                                aux utilisateurs de suivre leur composition corporelle et d'obtenir des recommandations
+                                personnalisées basées sur leur profil.
+                            </p>
+                        </section>
+
+                        <!-- Fonctionnalités principales -->
+                        <section class="detail-section">
+                            <h2>Fonctionnalités principales</h2>
+                            <p>
+                                L'application permet aux utilisateurs de saisir leurs informations personnelles (poids,
+                                taille, âge, sexe) via une interface intuitive et de calculer instantanément leur Indice
+                                de Masse Grasse. Le résultat est affiché avec un message d'interprétation personnalisé et
+                                un indicateur visuel (smiley) pour une compréhension rapide.
+                            </p>
+                            <p>
+                                L'interface utilisateur est conçue pour être simple et efficace, avec des champs de saisie
+                                numériques optimisés pour mobile, une sélection intuitive du sexe via des RadioButtons, et
+                                un affichage clair des résultats avec des messages explicatifs.
+                            </p>
+
+                            <!-- Capture d'écran -->
+                            <div class="screenshot-container">
+                                <img src="assets/images/coach/coach-interface.png"
+                                    alt="Interface de l'application Coach" class="screenshot-img"
+                                    onerror="this.src='https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=500&fit=crop'">
+                                <p class="screenshot-caption">Interface principale de l'application Coach</p>
+                            </div>
+
+                            <h3>Fonctionnalités de l'application</h3>
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-calculator"></i> Calcul IMG</h4>
+                                    <p>Calcul automatique de l'Indice de Masse Grasse selon la formule de Deurenberg</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-venus-mars"></i> Profil personnalisé</h4>
+                                    <p>Adaptation du calcul selon le sexe de l'utilisateur (homme/femme)</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-smile"></i> Feedback visuel</h4>
+                                    <p>Affichage de smileys et messages pour interpréter les résultats</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-mobile-alt"></i> Multiplateforme</h4>
+                                    <p>Disponible sur Android, iOS, macOS et Windows</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Architecture -->
+                        <section class="detail-section">
+                            <h2>Architecture</h2>
+                            <p>
+                                L'application utilise une architecture <strong>MVVM partielle</strong> avec .NET MAUI pour
+                                séparer la logique métier de l'interface utilisateur. Le traitement des données et les calculs
+                                sont effectués dans le modèle <code>Profil</code>, tandis que l'interface est définie en XAML
+                                pour une séparation claire des responsabilités.
+                            </p>
+
+                            <h3>Structure du projet</h3>
+                            <div class="code-block typing-code">
+                                <pre><code class="language-plaintext">mobile/
+├── App.xaml / App.xaml.cs          # Point d'entrée de l'application
+├── AppShell.xaml / AppShell.xaml.cs # Configuration de la navigation
+├── MainPage.xaml / MainPage.xaml.cs # Page principale de l'application
+├── MauiProgram.cs                   # Configuration et initialisation MAUI
+├── mobile.csproj                    # Fichier de projet .NET
+├── Modele/
+│   └── Profil.cs                    # Modèle de données pour le calcul IMG
+├── Platforms/                       # Code spécifique par plateforme
+│   ├── Android/
+│   ├── iOS/
+│   ├── MacCatalyst/
+│   └── Windows/
+└── Resources/                       # Ressources de l'application
+    ├── AppIcon/                     # Icônes de l'application
+    ├── Fonts/                       # Polices personnalisées
+    ├── Images/                      # Images de l'application
+    ├── Splash/                      # Écran de démarrage
+    └── Styles/                      # Styles XAML globaux</code></pre>
+                            </div>
+
+                            <h3>Point d'entrée de l'application</h3>
+                            <p>
+                                Le fichier <code>MauiProgram.cs</code> initialise l'application MAUI en configurant les
+                                services nécessaires, en enregistrant les polices personnalisées (OpenSans-Regular,
+                                OpenSans-Semibold) et en configurant le logging en mode DEBUG. La classe <code>App.xaml.cs</code>
+                                gère le cycle de vie de l'application et crée la fenêtre principale avec <code>AppShell</code>.
+                            </p>
+                        </section>
+
+                        <!-- Développement -->
+                        <section class="detail-section">
+                            <h2>Développement</h2>
+
+                            <h3>Interface utilisateur (MainPage.xaml)</h3>
+                            <p>
+                                La page principale contient tous les éléments nécessaires pour le calcul de l'IMG :
+                            </p>
+                            <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-secondary);">
+                                <li><strong>Champs de saisie</strong> : Poids (kg), Taille (cm), Âge (années) avec clavier numérique</li>
+                                <li><strong>Sélection du sexe</strong> : RadioButtons pour homme/femme (femme sélectionné par défaut)</li>
+                                <li><strong>Bouton de calcul</strong> : Lance le calcul de l'IMG</li>
+                                <li><strong>Affichage des résultats</strong> : Image smiley et label avec le message d'interprétation</li>
+                            </ul>
+
+                            <!-- Capture d'écran : Interface -->
+                            <div class="screenshot-container">
+                                <img src="assets/images/coach/coach-interface.png"
+                                    alt="Interface utilisateur de l'application" class="screenshot-img"
+                                    onerror="this.src='https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=500&fit=crop'">
+                                <p class="screenshot-caption">Interface utilisateur avec champs de saisie et résultats</p>
+                            </div>
+
+                            <h3>Modèle de données (Profil.cs)</h3>
+                            <p>
+                                La classe <code>Profil</code> encapsule la logique de calcul de l'IMG. Elle contient :
+                            </p>
+                            <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-secondary);">
+                                <li>Les propriétés privées pour stocker les données utilisateur (sexe, poids, taille, âge)</li>
+                                <li>La méthode <code>CalculIMG()</code> qui implémente la formule de Deurenberg</li>
+                                <li>La méthode <code>ResultatIMG()</code> qui détermine le message d'interprétation</li>
+                            </ul>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-csharp">// Formule de Deurenberg
+// IMG = (1.2 × poids / taille²) + (0.23 × âge) - (10.83 × sexe) - 5.4
+// où sexe = 1.0 pour homme, 0.0 pour femme
+// taille convertie en mètres (taille / 100.0)
+
+public void CalculIMG()
+{
+    double tailleEnMetres = taille / 100.0;
+    double sexeValue = sexe ? 1.0 : 0.0;
+    img = (1.2 * poids / (tailleEnMetres * tailleEnMetres)) 
+          + (0.23 * age) 
+          - (10.83 * sexeValue) 
+          - 5.4;
+}</code></pre>
+                            </div>
+
+                            <h3>Interprétation des résultats</h3>
+                            <p>
+                                Les seuils d'interprétation varient selon le sexe :
+                            </p>
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-venus"></i> Femmes</h4>
+                                    <ul style="margin-left: 16px; margin-top: 8px; color: var(--text-secondary); font-size: 0.9rem;">
+                                        <li>IMG &lt; 25% : "maigre"</li>
+                                        <li>25% ≤ IMG ≤ 30% : "Parfait"</li>
+                                        <li>IMG &gt; 30% : "Surpoids"</li>
+                                    </ul>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-mars"></i> Hommes</h4>
+                                    <ul style="margin-left: 16px; margin-top: 8px; color: var(--text-secondary); font-size: 0.9rem;">
+                                        <li>IMG &lt; 15% : "Trop maigre."</li>
+                                        <li>15% ≤ IMG ≤ 20% : "Parfait."</li>
+                                        <li>IMG &gt; 20% : "Surpoids."</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h3>Gestion des erreurs</h3>
+                            <p>
+                                L'application inclut une gestion des erreurs avec try-catch pour capturer les erreurs de
+                                parsing des données saisies. En cas de saisie incorrecte, une alerte est affichée à l'utilisateur
+                                pour l'informer du problème.
+                            </p>
+                        </section>
+
+                        <!-- Technologies utilisées -->
+                        <section class="detail-section">
+                            <h2>Technologies utilisées</h2>
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <h4><i class="fab fa-microsoft"></i> Framework</h4>
+                                    <p><strong>.NET MAUI</strong> (Multi-platform App UI) version 10.0</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-code"></i> Langage</h4>
+                                    <p><strong>C#</strong> (.NET 10.0)</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-paint-brush"></i> Interface</h4>
+                                    <p><strong>XAML</strong> pour la définition des vues</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-sitemap"></i> Architecture</h4>
+                                    <p><strong>MVVM</strong> (Model-View-ViewModel) partiel</p>
+                                </div>
+                            </div>
+
+                            <h3>Plateformes supportées</h3>
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <h4><i class="fab fa-android"></i> Android</h4>
+                                    <p>API 21.0 (Android 5.0 Lollipop) et supérieur</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fab fa-apple"></i> iOS</h4>
+                                    <p>iOS 15.0 et supérieur</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fab fa-apple"></i> macOS</h4>
+                                    <p>macOS 15.0 (Mac Catalyst) et supérieur</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fab fa-windows"></i> Windows</h4>
+                                    <p>Windows 10.0.17763.0 et supérieur</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Configuration par plateforme -->
+                        <section class="detail-section">
+                            <h2>Configuration par plateforme</h2>
+                            <p>
+                                Chaque plateforme nécessite une configuration spécifique pour le déploiement :
+                            </p>
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <h4><i class="fab fa-android"></i> Android</h4>
+                                    <ul style="margin-left: 16px; margin-top: 8px; color: var(--text-secondary); font-size: 0.9rem;">
+                                        <li><strong>Fichier manifeste</strong> : <code>Platforms/Android/AndroidManifest.xml</code></li>
+                                        <li><strong>Point d'entrée</strong> : <code>Platforms/Android/MainActivity.cs</code></li>
+                                        <li><strong>Application</strong> : <code>Platforms/Android/MainApplication.cs</code></li>
+                                        <li><strong>Version minimale</strong> : API 21 (Android 5.0)</li>
+                                    </ul>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fab fa-apple"></i> iOS</h4>
+                                    <ul style="margin-left: 16px; margin-top: 8px; color: var(--text-secondary); font-size: 0.9rem;">
+                                        <li><strong>Point d'entrée</strong> : <code>Platforms/iOS/Program.cs</code></li>
+                                        <li><strong>Délégué</strong> : <code>Platforms/iOS/AppDelegate.cs</code></li>
+                                        <li><strong>Configuration</strong> : <code>Platforms/iOS/Info.plist</code></li>
+                                        <li><strong>Version minimale</strong> : iOS 15.0</li>
+                                    </ul>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fab fa-apple"></i> Mac Catalyst</h4>
+                                    <ul style="margin-left: 16px; margin-top: 8px; color: var(--text-secondary); font-size: 0.9rem;">
+                                        <li><strong>Point d'entrée</strong> : <code>Platforms/MacCatalyst/Program.cs</code></li>
+                                        <li><strong>Délégué</strong> : <code>Platforms/MacCatalyst/AppDelegate.cs</code></li>
+                                        <li><strong>Configuration</strong> : <code>Platforms/MacCatalyst/Info.plist</code></li>
+                                        <li><strong>Version minimale</strong> : macOS 15.0</li>
+                                    </ul>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fab fa-windows"></i> Windows</h4>
+                                    <ul style="margin-left: 16px; margin-top: 8px; color: var(--text-secondary); font-size: 0.9rem;">
+                                        <li><strong>Point d'entrée</strong> : <code>Platforms/Windows/App.xaml.cs</code></li>
+                                        <li><strong>Manifeste</strong> : <code>Platforms/Windows/Package.appxmanifest</code></li>
+                                        <li><strong>Version minimale</strong> : Windows 10.0.17763.0</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Notes techniques -->
+                        <section class="detail-section">
+                            <h2>Notes techniques</h2>
+                            
+                            <h3>Formule IMG</h3>
+                            <p>
+                                La formule utilisée est celle de Deurenberg (1991) pour le calcul de l'Indice de Masse Grasse (IMG) :
+                            </p>
+                            <div class="code-block typing-code">
+                                <pre><code class="language-plaintext">IMG = (1.2 × IMC) + (0.23 × âge) - (10.8 × sexe) - 5.4</code></pre>
+                            </div>
+                            <p>où :</p>
+                            <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-secondary);">
+                                <li>IMC = poids (kg) / taille² (m)</li>
+                                <li>sexe = 1 pour homme, 0 pour femme</li>
+                            </ul>
+
+                            <h3>Interprétation des résultats</h3>
+                            <p>
+                                Les seuils d'interprétation varient selon le sexe et sont basés sur les recommandations
+                                médicales standard :
+                            </p>
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-venus"></i> Femmes</h4>
+                                    <p>Normal entre <strong>25%</strong> et <strong>30%</strong></p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-mars"></i> Hommes</h4>
+                                    <p>Normal entre <strong>15%</strong> et <strong>20%</strong></p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Outils utilisés -->
+                        <section class="detail-section">
+                            <h2>Outils utilisés</h2>
+                            <p>
+                                Le projet a été réalisé avec <strong>.NET MAUI</strong> pour le développement multiplateforme,
+                                <strong>C#</strong> pour la logique métier, <strong>XAML</strong> pour la définition des interfaces
+                                utilisateur, et <strong>Visual Studio 2022</strong> comme environnement de développement.
+                                Les packages NuGet utilisés incluent <strong>Microsoft.Maui.Controls</strong> et
+                                <strong>Microsoft.Extensions.Logging.Debug</strong> pour le logging en mode debug.
+                            </p>
+                        </section>
+
+                        <!-- Compétences techniques -->
+                        <section class="detail-section">
+                            <h2>Compétences techniques mises en œuvre</h2>
+                            <p>
+                                Ce projet m'a permis de renforcer mes compétences en développement mobile multiplateforme avec
+                                .NET MAUI. J'ai appris à structurer une application mobile, à utiliser XAML pour créer des
+                                interfaces utilisateur, à implémenter la logique métier en C#, à gérer les erreurs et à
+                                configurer le déploiement sur différentes plateformes. J'ai également approfondi ma compréhension
+                                de l'architecture MVVM et des techniques de développement mobile moderne.
+                            </p>
+                        </section>
+
+                        <!-- Conclusion -->
+                        <section class="detail-section">
+                            <h2>Conclusion</h2>
+                            <p>
+                                Ce projet m'a permis de mettre en pratique mes compétences en développement mobile multiplateforme
+                                avec .NET MAUI. J'ai conçu une application complète et fonctionnelle permettant de calculer l'IMG
+                                de manière intuitive et accessible sur toutes les plateformes. L'expérience acquise me donne une
+                                base solide pour le développement d'applications mobiles professionnelles et multiplateformes.
+                            </p>
+                        </section>
+
+                        <!-- Liens -->
+                        <section class="detail-section">
+                            <h2>Liens et ressources</h2>
+                            <div class="project-links">
+                                <a href="https://learn.microsoft.com/dotnet/maui/" target="_blank" class="link-btn"><i class="fas fa-book"></i> Documentation .NET MAUI</a>
+                                <a href="https://dotnet.microsoft.com/" target="_blank" class="link-btn"><i class="fab fa-microsoft"></i> Site officiel .NET</a>
+                                <a href="https://learn.microsoft.com/dotnet/csharp/" target="_blank" class="link-btn"><i class="fas fa-code"></i> Documentation C#</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-projects">
+            <div class="container">
+                <h2>Autres projets</h2>
+                <div class="projects-grid">
+                    <a href="ecommerce.html" class="project-card">
+                        <div class="project-card-image">
+                            <img src="assets/images/ecommerce/page_accueil.png" alt="Site E-commerce" loading="lazy">
+                        </div>
+                        <h3>SIO-SHOES</h3>
+                        <p>Site e-commerce de vente de chaussures développé avec Symfony</p>
+                        <div class="project-technologies">
+                            <span class="tech-small">Symfony</span>
+                            <span class="tech-small">PHP</span>
+                            <span class="tech-small">MySQL</span>
+                        </div>
+                    </a>
+                    <a href="gestion.html" class="project-card">
+                        <div class="project-card-image">
+                            <img src="assets/images/ecommerce/gestion/accueil.png" alt="Logiciel de gestion" loading="lazy">
+                        </div>
+                        <h3>Logiciel de gestion</h3>
+                        <p>Application de gestion d'entreprise avec base de données complexe</p>
+                        <div class="project-technologies">
+                            <span class="tech-small">C#</span>
+                            <span class="tech-small">SQL</span>
+                            <span class="tech-small">WPF</span>
+                        </div>
+                    </a>
+                    <a href="iss-tracking.html" class="project-card">
+                        <div class="project-card-image">
+                            <img src="assets/images/ISS/ISS.png" alt="Suivi de l'ISS" loading="lazy">
+                        </div>
+                        <h3>Suivi de l'ISS</h3>
+                        <p>Application web de suivi de la Station Spatiale Internationale en temps réel</p>
+                        <div class="project-technologies">
+                            <span class="tech-small">JavaScript</span>
+                            <span class="tech-small">Leaflet</span>
+                            <span class="tech-small">API</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scroll to Top Button - Footer -->
+    <section class="scroll-to-top-footer">
+        <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
+            <span data-i18n="footer.backToTop">Retour en haut</span>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
+    <!-- NOUVEAU FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <div class="footer-links">
+                    <a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de confidentialité</a>
+                    <span class="footer-separator">|</span>
+                    <a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a>
+                    <span class="footer-separator">|</span>
+                    <a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://github.com/Ludovic-SIO" target="_blank" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ludovic-champrobert/" target="_blank" class="social-btn"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/multilingual.js"></script>
+    <script src="assets/js/toc-island.js"></script>
+    <script src="assets/js/code-highlight.js"></script>
+    <script src="assets/js/typing-effect.js"></script>
+
+    <!-- Nouveaux scripts -->
+    <script src="assets/js/scroll-reveal.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+    <script src="assets/js/lazy-load.js"></script>
+    <script src="assets/js/video-hover.js"></script>
+
+    <script>
+        // Initialiser le highlight.js
+        hljs.highlightAll();
+
+        // Toggle TOC dropdown
+        document.addEventListener('DOMContentLoaded', () => {
+            const tocHeader = document.querySelector('.toc-header');
+            const tocIsland = document.querySelector('.toc-island');
+            if (tocHeader && tocIsland) {
+                tocHeader.addEventListener('click', () => {
+                    tocIsland.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+    <script src="assets/js/scroll-to-top-footer.js"></script>
+</body>
+
+</html>

@@ -53,6 +53,7 @@
     <link rel="stylesheet" href="assets/css/timeline-enhanced.css">
     <link rel="stylesheet" href="assets/css/footer-enhanced.css">
     <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+    <link rel="stylesheet" href="assets/css/multilingual.css">
 
     <!-- Scripts de compatibilité (chargés tôt) -->
     <script src="assets/js/browser-compat.js"></script>
@@ -66,18 +67,18 @@
         <div class="container nav-inner">
             <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
             <div class="nav-menu">
-                <a href="index.html" class="nav-link">Profil</a>
-                <a href="projets.html" class="nav-link">Projets</a>
-                <a href="parcours.html" class="nav-link active">Parcours</a>
-                <a href="veille.html" class="nav-link">Veille</a>
-                <a href="contact.html" class="nav-contact">Contact</a>
+                <a href="index.html" class="nav-link" data-i18n="nav.profil">Profil</a>
+                <a href="projets.html" class="nav-link" data-i18n="nav.projets">Projets</a>
+                <a href="parcours.html" class="nav-link active" data-i18n="nav.parcours">Parcours</a>
+                <a href="veille.html" class="nav-link" data-i18n="nav.veille">Veille</a>
+                <a href="contact.html" class="nav-contact" data-i18n="nav.contact">Contact</a>
             </div>
         </div>
     </nav>
 
     <main class="parcours-main">
         <div class="container">
-            <h1 class="parcours-title">Mon Parcours</h1>
+            <h1 class="parcours-title" data-i18n="parcours.monParcours">Mon Parcours</h1>
 
             <div class="timeline-container">
                 <!-- Timeline line simple avec barre de progression -->
@@ -131,7 +132,7 @@
                                 <a href="assets/documents/Open Biz DEV.pdf" target="_blank"
                                     class="timeline-view-btn">
                                     <i class="fas fa-eye"></i>
-                                    <span>Voir le rapport de stage</span>
+                                    <span data-i18n="common.viewReport">Voir le rapport de stage</span>
                                 </a>
                             </div>
                         </div>
@@ -220,7 +221,7 @@
                                 <a href="assets/documents/Iconnected store.pdf" target="_blank"
                                     class="timeline-view-btn">
                                     <i class="fas fa-eye"></i>
-                                    <span>Voir le rapport de stage</span>
+                                    <span data-i18n="common.viewReport">Voir le rapport de stage</span>
                                 </a>
                             </div>
                         </div>
@@ -231,37 +232,37 @@
                         <div class="timeline-marker"></div>
                         <div class="timeline-card">
                             <div class="timeline-card-header">
-                                <span class="timeline-badge">ACTIVE</span>
+                                <span class="timeline-badge" data-i18n="parcours.active">ACTIVE</span>
                                 <span class="timeline-date-range">
                                     <i class="fas fa-calendar"></i>
                                     sept. 2024 - juil. 2026
                                 </span>
                             </div>
-                            <h2 class="timeline-title">BTS services informatiques aux organisations</h2>
+                            <h2 class="timeline-title" data-i18n="parcours.bts.title">BTS services informatiques aux organisations</h2>
                             <div class="timeline-meta">
                                 <span><i class="fas fa-graduation-cap"></i> Lycée Edouard Gand</span>
-                                <span>Informatique</span>
+                                <span data-i18n="parcours.informatique">Informatique</span>
                             </div>
-                            <p class="timeline-description">
+                            <p class="timeline-description" data-i18n="parcours.bts.description">
                                 Formation en développement et maintenance des applications, gestion des systèmes et
                                 réseaux, assistance et conseil, travail en équipe et gestion de projet.
                             </p>
                             <div class="timeline-tasks">
                                 <div class="timeline-task">
                                     <i class="fas fa-arrow-up"></i>
-                                    <span>Développement et maintenance des applications</span>
+                                    <span data-i18n="parcours.bts.task1">Développement et maintenance des applications</span>
                                 </div>
                                 <div class="timeline-task">
                                     <i class="fas fa-arrow-up"></i>
-                                    <span>Gestion des systèmes et réseaux</span>
+                                    <span data-i18n="parcours.bts.task2">Gestion des systèmes et réseaux</span>
                                 </div>
                                 <div class="timeline-task">
                                     <i class="fas fa-arrow-up"></i>
-                                    <span>Assistance et conseil</span>
+                                    <span data-i18n="parcours.bts.task3">Assistance et conseil</span>
                                 </div>
                                 <div class="timeline-task">
                                     <i class="fas fa-arrow-up"></i>
-                                    <span>Travail en équipe et gestion de projet</span>
+                                    <span data-i18n="parcours.bts.task4">Travail en équipe et gestion de projet</span>
                                 </div>
                             </div>
                             <div class="timeline-tags">
@@ -391,7 +392,7 @@
     <!-- Scroll to Top Button - Footer -->
     <section class="scroll-to-top-footer">
         <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
-            <span>Retour en haut</span>
+            <span data-i18n="footer.backToTop">Retour en haut</span>
             <i class="fas fa-arrow-up"></i>
         </button>
     </section>
@@ -399,14 +400,14 @@
     <footer class="main-footer">
         <div class="footer-container">
             <div class="footer-left">
-                <p class="copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
-                <p class="credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p>
                 <div class="footer-links">
-                    <a href="privacy.html" class="privacy-link">Politique de confidentialité</a>
+                    <a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de confidentialité</a>
                     <span class="footer-separator">|</span>
-                    <a href="cookies.html" class="privacy-link">Politique des cookies</a>
+                    <a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a>
                     <span class="footer-separator">|</span>
-                    <a href="legal.html" class="privacy-link">Mentions légales</a>
+                    <a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a>
                 </div>
             </div>
 
@@ -428,6 +429,7 @@
 
     <!-- Nouveaux scripts -->
     <script src="assets/js/toast.js"></script>
+    <script src="assets/js/multilingual.js"></script>
     <script src="assets/js/scroll-reveal.js"></script>
     <script src="assets/js/accessibility.js"></script>
     <script src="assets/js/lazy-load.js"></script>

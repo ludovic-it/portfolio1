@@ -111,4 +111,3 @@ class ContactFormValidation {
 document.addEventListener('DOMContentLoaded', () => {
     new ContactFormValidation();
 });
-

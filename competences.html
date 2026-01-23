@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/footer-enhanced.css">
     <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+    <link rel="stylesheet" href="assets/css/multilingual.css">
 </head>
 
 <body>
@@ -21,12 +22,12 @@
             <a href="index.html" class="brand">LUDOVIC<span class="text-primary">.C</span></a>
             <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
             <div class="nav-menu">
-                <a href="index.html" class="nav-link">Profil</a>
-                <a href="projets.html" class="nav-link">Projets</a>
-                <a href="parcours.html" class="nav-link">Parcours</a>
-                <a href="competences.html" class="nav-link active">Compétences</a>
-                <a href="veille.html" class="nav-link">Veille</a>
-                <a href="contact.html" class="nav-contact">Contact</a>
+                <a href="index.html" class="nav-link" data-i18n="nav.profil">Profil</a>
+                <a href="projets.html" class="nav-link" data-i18n="nav.projets">Projets</a>
+                <a href="parcours.html" class="nav-link" data-i18n="nav.parcours">Parcours</a>
+                <a href="competences.html" class="nav-link active" data-i18n="nav.competences">Compétences</a>
+                <a href="veille.html" class="nav-link" data-i18n="nav.veille">Veille</a>
+                <a href="contact.html" class="nav-contact" data-i18n="nav.contact">Contact</a>
             </div>
         </div>
     </nav>
@@ -109,7 +110,7 @@
     <!-- Scroll to Top Button - Footer -->
     <section class="scroll-to-top-footer">
         <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
-            <span>Retour en haut</span>
+            <span data-i18n="footer.backToTop">Retour en haut</span>
             <i class="fas fa-arrow-up"></i>
         </button>
     </section>
@@ -117,14 +118,14 @@
     <footer class="main-footer">
         <div class="footer-container">
             <div class="footer-left">
-                <p class="copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
-                <p class="credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p>
                 <div class="footer-links">
-                    <a href="privacy.html" class="privacy-link">Politique de confidentialité</a>
+                    <a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de confidentialité</a>
                     <span class="footer-separator">|</span>
-                    <a href="cookies.html" class="privacy-link">Politique des cookies</a>
+                    <a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a>
                     <span class="footer-separator">|</span>
-                    <a href="legal.html" class="privacy-link">Mentions légales</a>
+                    <a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a>
                 </div>
             </div>
 
@@ -143,6 +144,7 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/multilingual.js"></script>
     <script src="assets/js/scroll-to-top-footer.js"></script>
 </body>
 
