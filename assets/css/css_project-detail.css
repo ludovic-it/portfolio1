@@ -37,12 +37,23 @@ body {
     background-color: var(--background-color);
     overflow-x: hidden;
     font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+main {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 32px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* ===== TYPOGRAPHY ===== */
@@ -215,6 +226,8 @@ h6 {
 .project-detail {
     padding: 80px 0 80px;
     min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .project-header {
@@ -223,6 +236,9 @@ h6 {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 16px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .back-link {
@@ -258,18 +274,23 @@ h6 {
 
 /* ===== HERO IMAGE ===== */
 .project-hero-image {
-    margin: 48px 0;
+    margin: 48px auto;
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow-large);
+    max-width: 1000px;
+    width: 100%;
 }
 
 .hero-img {
     width: 100%;
+    max-width: 100%;
     height: auto;
+    max-height: 600px;
     display: block;
     border-radius: var(--border-radius);
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
 }
 
 /* ===== VIDEO SECTION ===== */
@@ -394,22 +415,44 @@ h6 {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 16px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .project-main {
     max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .detail-section {
+    margin-top: 0;
     margin-bottom: 48px;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.detail-section:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.detail-section + .detail-section {
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .detail-section h2 {
     font-size: 1.75rem;
     font-weight: 700;
+    margin-top: 0;
     margin-bottom: 1.5rem;
     color: var(--text-primary);
     letter-spacing: -0.02em;
+    width: 100%;
 }
 
 .detail-section p {
@@ -417,6 +460,30 @@ h6 {
     line-height: 1.8;
     font-size: 1.0625rem;
     margin-bottom: 1rem;
+    width: 100%;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.detail-section ul,
+.detail-section ol {
+    margin-left: 24px;
+    margin-bottom: 16px;
+    margin-right: 0;
+    padding-left: 0;
+    color: var(--text-secondary);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.detail-section ul li,
+.detail-section ol li {
+    margin-bottom: 8px;
+    line-height: 1.7;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .objectives-list,
@@ -468,6 +535,9 @@ h6 {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
     margin-top: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .feature-item {
@@ -476,6 +546,10 @@ h6 {
     border-radius: var(--border-radius-small);
     border: 1px solid var(--border-color);
     transition: var(--transition);
+    width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .feature-item:hover {
@@ -495,6 +569,26 @@ h6 {
     color: var(--text-secondary);
     margin: 0;
     line-height: 1.6;
+    width: 100%;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.feature-item ul {
+    margin-left: 16px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    padding-left: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.feature-item ul li {
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* ===== GALLERY ===== */
@@ -527,17 +621,24 @@ h6 {
 
 /* ===== SCREENSHOTS ===== */
 .screenshot-container {
-    margin: 2rem 0;
+    margin: 2rem auto;
     border-radius: var(--border-radius-small);
     overflow: hidden;
     box-shadow: var(--shadow);
+    max-width: 100%;
+    width: 100%;
+    display: block;
 }
 
 .screenshot-img {
     width: 100%;
+    max-width: 100%;
     height: auto;
+    max-height: 500px;
     display: block;
     border-radius: var(--border-radius-small);
+    object-fit: contain;
+    object-position: center;
 }
 
 .screenshot-caption {
@@ -558,6 +659,9 @@ h6 {
     color: var(--text-secondary);
     border: none;
     font-style: italic;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
 .detail-section h3 {
@@ -567,6 +671,7 @@ h6 {
     margin-bottom: 1rem;
     color: var(--text-primary);
     letter-spacing: -0.01em;
+    width: 100%;
 }
 
 .detail-section h4 {
@@ -575,6 +680,7 @@ h6 {
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
     color: var(--text-primary);
+    width: 100%;
 }
 
 /* ===== TOC ISLAND ===== */
@@ -708,6 +814,9 @@ h6 {
     margin: 32px 0;
     /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);*/
     display: flex;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 /* Container pour numéros de ligne (fond blanc) */
@@ -1439,6 +1548,9 @@ pre code .hljs-symbol,
     gap: 12px;
     flex-wrap: wrap;
     margin-top: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 /* ===== RELATED PROJECTS ===== */
@@ -1675,6 +1787,7 @@ pre code .hljs-symbol,
     .project-content-wrapper {
         grid-template-columns: 1fr;
         gap: 32px;
+        padding: 0 16px;
     }
 
     .project-sidebar {
@@ -1689,6 +1802,13 @@ pre code .hljs-symbol,
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .hero-img {
+        max-height: 500px;
+    }
+
+    .screenshot-img {
+        max-height: 400px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1730,10 +1850,16 @@ pre code .hljs-symbol,
 
     .project-header {
         margin-bottom: 32px;
+        padding: 0 16px;
     }
 
     .project-hero-image {
-        margin: 32px 0;
+        margin: 32px auto;
+        max-width: 100%;
+    }
+
+    .hero-img {
+        max-height: 400px;
     }
 
     .project-video-section {
@@ -1742,6 +1868,15 @@ pre code .hljs-symbol,
 
     .detail-section {
         margin-bottom: 32px;
+        padding: 0 8px;
+    }
+
+    .project-content-wrapper {
+        padding: 0 16px;
+    }
+
+    .screenshot-img {
+        max-height: 350px;
     }
 
     .sidebar-card {
@@ -1761,11 +1896,35 @@ pre code .hljs-symbol,
         text-align: center;
         gap: 24px;
     }
+
+    .container {
+        padding: 0 20px;
+    }
 }
 
 @media (max-width: 480px) {
     .container {
-        padding: 0 20px;
+        padding: 0 16px;
+    }
+
+    .project-content-wrapper {
+        padding: 0 12px;
+    }
+
+    .project-header {
+        padding: 0 12px;
+    }
+
+    .detail-section {
+        padding: 0 4px;
+    }
+
+    .hero-img {
+        max-height: 300px;
+    }
+
+    .screenshot-img {
+        max-height: 250px;
     }
 
     .project-links {

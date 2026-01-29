@@ -90,33 +90,31 @@
             try {
                 // Vérifier si la police FRICK est chargée
                 if (document.fonts && document.fonts.check) {
+                    // Attendre plus longtemps pour laisser le temps à la police de se charger
                     setTimeout(() => {
-                        if (document.fonts.check('1em FRICK')) {
+                        // Vérifier plusieurs fois avec différents formats
+                        const frickLoaded = document.fonts.check('1em FRICK') || 
+                                          document.fonts.check('1em "FRICK"') ||
+                                          document.fonts.check('normal 1em FRICK');
+                        
+                        if (frickLoaded) {
                             this.fontsLoaded.frick = true;
                         } else {
+                            // Ne pas appliquer le fallback automatiquement
+                            // La police Inter est déjà disponible et fonctionne bien
                             this.fontsLoaded.frick = false;
-                            console.warn('Police FRICK non chargée');
-                            this.applyFrickFontFallback();
+                            // Ne pas appeler applyFrickFontFallback() ici car Inter est suffisant
                         }
-                    }, 1000);
+                    }, 2000); // Augmenter le délai à 2 secondes
                 } else {
-                    // Fallback : vérifier si le fichier existe
-                    const testImg = new Image();
-                    testImg.onerror = () => {
-                        this.fontsLoaded.frick = false;
-                        this.applyFrickFontFallback();
-                    };
-                    testImg.onload = () => {
-                        // Si l'image se charge, on considère que la font est disponible
-                        // (ceci n'est pas parfait mais c'est un fallback)
-                    };
                     // Ne peut pas vraiment tester la font directement sans Font Loading API
-                    this.fontsLoaded.frick = true; // Optimiste
+                    // Considérer que FRICK est disponible (optimiste) mais ne pas forcer le fallback
+                    this.fontsLoaded.frick = true;
                 }
             } catch (e) {
                 console.warn('Erreur lors de la vérification de la police FRICK:', e);
+                // En cas d'erreur, ne pas appliquer le fallback car Inter fonctionne
                 this.fontsLoaded.frick = false;
-                this.applyFrickFontFallback();
             }
         },
 
@@ -170,15 +168,12 @@
 
         applyFrickFontFallback: function() {
             try {
-                // Ajouter un fallback CSS si la police FRICK n'est pas chargée
-                const style = document.createElement('style');
-                style.id = 'frick-font-fallback';
-                style.textContent = `
-                    .frick-font, h1, h2, h3, .page-title {
-                        font-family: 'Impact', 'Arial Black', sans-serif !important;
-                    }
-                `;
-                document.head.appendChild(style);
+                // Ne pas appliquer le fallback FRICK automatiquement
+                // La police Inter est déjà disponible et fonctionne bien pour tous les éléments
+                // Le fallback FRICK n'est nécessaire que si FRICK est explicitement demandée
+                // et que la page ne fonctionne pas sans elle
+                // Pour l'instant, on laisse Inter gérer tous les titres
+                console.log('Police FRICK non détectée, utilisation de Inter (déjà chargée)');
             } catch (e) {
                 console.warn('Erreur lors de l\'application du fallback FRICK:', e);
             }
@@ -193,9 +188,10 @@
                 if (!this.fontsLoaded.fontAwesome) {
                     this.applyFontAwesomeFallback();
                 }
-                if (!this.fontsLoaded.frick) {
-                    this.applyFrickFontFallback();
-                }
+                // Ne pas appliquer le fallback FRICK automatiquement
+                // La police Inter est déjà disponible et fonctionne bien
+                // Le fallback FRICK n'est nécessaire que si FRICK est explicitement demandée
+                // et que la page ne fonctionne pas sans elle
             }, 2000);
         }
     };

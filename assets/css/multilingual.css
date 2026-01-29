@@ -75,9 +75,7 @@
     transition: color 0.3s ease;
     user-select: none;
     font-weight: 400;
-}
-
-.footer-language-switcher .lang-option:hover {
+}.footer-language-switcher .lang-option:hover {
     color: #ffffff;
 }
 
